@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, SafeAreaView, Button, Image} from 'react-native
 import { DrawerNavigator } from 'react-navigation'
 import { Container, Content, Header, Icon, Body } from 'native-base';
 import AppNavigation from './AppNavigation'
+import AuthNavigation from './AuthNavigation'
+
 
 
 export default class App extends React.Component {
@@ -19,7 +21,7 @@ export default class App extends React.Component {
   render (){
     console.log(this.state)
     return (
-      <AppNavigation />
+      <AuthNavigation />
     )
   }
 }//end of App Class
