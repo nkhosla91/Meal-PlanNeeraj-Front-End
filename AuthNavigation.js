@@ -13,6 +13,7 @@ export default createAppContainer (
       },
       {
         initialRouteName: 'WelcomeScreen',
+        headerMode: 'none',
       }
     )
 )
