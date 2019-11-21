@@ -1,7 +1,5 @@
 import React from 'react';
-// import { DrawerNavigator } from 'react-navigation'
-import AppNavigation from './AppNavigation'
-import AuthNavigation from './AuthNavigation'
+import FullAppNavigator from './FullAppNavigator'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
@@ -13,30 +11,26 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   switch(action.type)
   {
-    case 'LOG_IN':
-      return {counter: true}
+    case 'LOGGED_IN':
+      return {loggedIn: true}
   }
   return state 
 }
 
 const store = createStore(reducer)
 
-export default class App extends React.Component {
+
+class App extends React.Component {
   
   render (){
-    if(!this.state.loggedIn){
       return (
         <Provider store={store}>
-          <AuthNavigation />
+          <FullAppNavigator />
         </Provider>
       )
-    } else if (this.state.loggedIn){
-      return (
-        <Provider store={store}>
-        <AppNavigation />
-      </Provider>
-      )
-    }
   }
+
 }//end of App Class
+
+export default App
 

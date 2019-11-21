@@ -1,26 +1,27 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import {connect} from 'react-redux'
-import { runInThisContext } from 'vm'
 
-function Login() {
-  return (
-    <View style={styles.container}>
-      <Text>Login</Text>
-      <Button
-          title="Log In"
-          onPress={() => this.props.logIn}
-        />
-    </View>
-  )
+
+class Login extends React.Component {
+  render(){
+    return (
+      <View style={styles.container}>
+        <Button
+            title="Log In"
+            onPress={this.props.loggedIn}
+          />
+      </View>
+    )
+  }
 }
 
-export default connect(mapDispatchToProps)(Login)
+export default connect(null, mapDispatchToProps)(Login)
 
 
 function mapDispatchToProps(dispatch){
   return {
-      logIn: () => dispatch({type: 'LOG_IN'}),
+      loggedIn: () => dispatch({type: 'LOGGED_IN'}),
   }
 }
 
