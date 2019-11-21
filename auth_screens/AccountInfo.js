@@ -1,12 +1,15 @@
 import React from 'react'
+
 import { StyleSheet, Text, View } from 'react-native'
 
-export default function Signup() {
-  return (
-    <View style={styles.container}>
-      <Text>Signup</Text>
-    </View>
-  )
+export default class AccountInfo extends React.Component {
+  render () {
+    return (
+      <View style={styles.container}>
+        <Text>AccountInfo</Text>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
