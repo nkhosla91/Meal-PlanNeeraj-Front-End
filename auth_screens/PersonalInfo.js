@@ -4,10 +4,16 @@ import t from 'tcomb-form-native'
 
 const Form = t.form.Form
 
+const Gender = t.enums({
+    M: 'Male',
+    F: 'Female'
+  })
+
 const User = t.struct({
-    email: t.String,
-    // username: t.String,
-    // password: t.String
+    gender: Gender,
+    age: t.Number,
+    height: t.Number,
+    weight: t.Number
 })
 
 
@@ -26,9 +32,9 @@ export default class AccountInfo extends React.Component {
     return (
       <View style={styles.container}>
           <Text style={styles.paragraph}> 
-            Account Information
+            Tell Us About Yourself!
           </Text>
-        <Form 
+        <Form  
           ref={c => this._form = c} 
           type={User} 
         />
@@ -42,19 +48,19 @@ export default class AccountInfo extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#C5FFCA',
-    marginTop: 50,
-    padding: 20,
-    justifyContent: 'center'
-  },
-  paragraph: {
-    marginBottom: 24,
-    fontSize: 18,
-    textAlign: 'center',
-    fontSize: 40,
-    fontWeight: 'bold',
-    fontFamily: 'Cochin'
-  }
-})
+    container: {
+      flex: 1,
+      backgroundColor: '#C5FFCA',
+      marginTop: 50,
+      padding: 20,
+      justifyContent: 'center'
+    },
+    paragraph: {
+      marginBottom: 24,
+      fontSize: 18,
+      textAlign: 'center',
+      fontSize: 40,
+      fontWeight: 'bold',
+      fontFamily: 'Cochin'
+    }
+  })
