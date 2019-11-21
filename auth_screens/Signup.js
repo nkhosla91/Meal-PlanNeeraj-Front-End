@@ -25,6 +25,7 @@ class Signup extends React.Component {
     age: null,
     height: null,
     weight: null,
+    activityLevel: null,
     calories: null,
     carbs: null,
     fat: null,
@@ -33,8 +34,11 @@ class Signup extends React.Component {
 
   handleState = (infoHash) => {
     this.setState({...infoHash})
-    if (!this.state.age){
+    // console.log(this.state.email, this.state.age)
+    if (!this.state.email){
      this.props.navigation.navigate('PersonalInfo')
+    } else if (!this.state.age){
+
     }
   }
   
