@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View, Button, Linking } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import t from 'tcomb-form-native'
 
@@ -15,15 +15,15 @@ const User = t.struct({
 export default class AccountInfo extends React.Component {
 
     handleSubmit = () => {
-        console.log(this.props.screenProps)
-        const value = this._form.getValue(); // use that ref to get the form value
+        // console.log(this.props.screenProps)
+        const value = this._form.getValue()
     //     console.log(value["email"])
-       this.props.screenProps(value)
+       this.props.screenProps.handleState(value)
 
     }
     
     render () {
-        // console.log(this.props.screenProps)
+        // console.log(this.props.screenProps.handleState, 'screenProps')
         return (
             <KeyboardAwareScrollView  contentContainerStyle={{flexGrow: 1}}>
                 <View style={styles.container}>

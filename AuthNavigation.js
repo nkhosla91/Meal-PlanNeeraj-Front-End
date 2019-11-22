@@ -4,12 +4,13 @@ import Login from './auth_screens/Login'
 import Signup from './auth_screens/Signup'
 import WelcomeScreen from './auth_screens/WelcomeScreen'
 
+
 export default createAppContainer (
   createStackNavigator(
       {
         WelcomeScreen: WelcomeScreen,
         Login: Login,
-        Signup: Signup,
+        Signup: Signup
       },
       {
         initialRouteName: 'WelcomeScreen',
