@@ -32,9 +32,12 @@ class Signup extends React.Component {
     activityLevel: null,
     BMR: null,
     calories: null,
-    carbs: null,
-    fat: null,
-    protein: null
+    carbPercent: null,
+    fatPercent: null,
+    proteinPercent: null,
+    carbCalories: null,
+    fatCalories: null,
+    proteinCalories: null
   }
 
   handleState = (infoHash) => {
@@ -71,7 +74,10 @@ class Signup extends React.Component {
     const { navigation } = this.props
     const props = {
       handleState: this.handleState,
-      calories: this.state.calories
+      calories: this.state.calories,
+      carbCalories: this.state.carbCalories,
+      proteinCalories: this.state.proteinCalories,
+      fatCalories: this.state.fatCalories
     }
 
       return (

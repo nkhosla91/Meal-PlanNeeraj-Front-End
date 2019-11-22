@@ -22,9 +22,12 @@ export default class AccountInfo extends React.Component {
         // console.log(value)
         let macros = {}
         if(value["macros"] === "503020" ){
-            macros["carbs"] = 50
-            macros["fat"] = 30
-            macros["protein"] = 20
+            macros["carbPercent"] = 50
+            macros["fatPercent"] = 30
+            macros["proteinPercent"] = 20
+            macros["carbCalories"] = .50 * this.props.screenProps.calories
+            macros["fatCalories"] = .30 * this.props.screenProps.calories
+            macros["proteinCalories"] = .20 * this.props.screenProps.calories
             // console.log("macs", macros)
             this.props.screenProps.handleState(macros)
         }

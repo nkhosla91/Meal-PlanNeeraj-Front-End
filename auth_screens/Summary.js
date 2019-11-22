@@ -1,6 +1,7 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View, Button, Dimensions } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { LineChart, BarChart, Grid } from "react-native-chart-kit"
 
 
 export default class AccountInfo extends React.Component {
@@ -9,6 +10,7 @@ export default class AccountInfo extends React.Component {
         const value = this._form.getValue()
         this.props.screenProps.handleState(value)
     }
+
     
     render () {
         // console.log(this.props.screenProps)
@@ -18,6 +20,41 @@ export default class AccountInfo extends React.Component {
                 <Text style={styles.paragraph}> 
                     SUMMARY
                 </Text>
+                <View>
+  
+  <BarChart
+    data={{
+      labels: ["Carbs", "Fat", "Protein"],
+      datasets: [
+        {
+
+             data: [
+           this.props.screenProps.carbCalories,
+           this.props.screenProps.fatCalories,
+           this.props.screenProps.proteinCalories
+          ]
+        }
+      ]
+    }}
+    width={330} // from react-native
+    height={220}
+    chartConfig={{
+      backgroundColor: "#e26a00",
+      backgroundGradientFrom: "#fb8c00",
+      backgroundGradientTo: "#ffa726",
+      decimalPlaces: 0, // optional, defaults to 2dp
+      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+      labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+      style: {
+        borderRadius: 16
+      },
+    }}
+    style={{
+      marginVertical: 8,
+      borderRadius: 16
+    }}
+  />
+</View>
             </View>
         </KeyboardAwareScrollView>
     )
@@ -39,5 +76,9 @@ const styles = StyleSheet.create({
       fontSize: 40,
       fontWeight: 'bold',
       fontFamily: 'Cochin'
+    },  
+    chartConfig: {
+      backgroundColor: '#e26a00',
+      color: () => `rgb(255, 255, 255)`
     }
   })
