@@ -6,11 +6,6 @@ import { LineChart, BarChart, Grid } from "react-native-chart-kit"
 
 export default class AccountInfo extends React.Component {
 
-    // handleSubmit = () => {
-  
-    //     this.props.screenProps.handleCreateUser()
-    // }
-
     
     render () {
         // console.log(this.props.screenProps)

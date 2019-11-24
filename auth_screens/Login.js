@@ -10,6 +10,7 @@ class Login extends React.Component {
         <Button
             title="Log In"
             onPress={this.props.loggedIn}
+            
           />
       </View>
     )

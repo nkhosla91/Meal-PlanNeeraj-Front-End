@@ -1,3 +1,4 @@
+  
 import React from 'react';
 import AppNavigation from './AppNavigation'
 import AuthNavigation from './AuthNavigation'
@@ -7,7 +8,7 @@ import {connect} from 'react-redux'
 class FullAppNavigator extends React.Component {
   
     render (){
-    
+    // console.log(this.props)
         if(!this.props.loggedIn){
             return (
                 <AuthNavigation />
