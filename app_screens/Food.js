@@ -1,11 +1,10 @@
 import React from 'react'
-import { StyleSheet, Text, View, MaskedViewComponent } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import {Icon, Button, Container, Header, Content, TouchableOpacity} from 'native-base'
 import {connect} from 'react-redux'
 import t from 'tcomb-form-native'
 import { Searchbar } from 'react-native-paper';
 import selectedFood from '../actions'
-
 
 const Form = t.form.Form
 
@@ -84,7 +83,7 @@ class Food extends React.Component {
     }
 } //end of MyInfo Class
 
-export default connect(mapStateToProps, MaskedView)(Food)
+export default connect(mapStateToProps)(Food)
 
   function mapStateToProps(state){
     return{
@@ -92,11 +91,7 @@ export default connect(mapStateToProps, MaskedView)(Food)
     }
   }
 
-  function mapDispatchToProps(state){
-    return{
-       food: state.food
-    }
-  }
+
 
   const styles = StyleSheet.create({
     paragraph: {
