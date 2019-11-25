@@ -1,3 +1,3 @@
 export function selectFood(food) {
-    return {type: "SELECT_FOOD", payload: FOOD}
+    return {type: "SELECT_FOOD", payload: food}
   }

@@ -2,25 +2,25 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import {Icon, Button, Container, Header, Content, TouchableOpacity} from 'native-base'
 import {connect} from 'react-redux'
-import t from 'tcomb-form-native'
+
 import { Searchbar } from 'react-native-paper';
-import selectedFood from '../actions'
+import { selectFood }from '../../actions'
 
-const Form = t.form.Form
+// const Form = t.form.Form
 
 
 
-  const Meal = t.enums({
-    breakfast: 'Breakfast',
-    lunch: 'Lunch',
-    dinner: 'Dinner'
-  })
+//   const Meal = t.enums({
+//     breakfast: 'Breakfast',
+//     lunch: 'Lunch',
+//     dinner: 'Dinner'
+//   })
 
-const AddFood = t.struct({
-    meal: Meal
-})
+// const AddFood = t.struct({
+//     meal: Meal
+// })
 
-class Food extends React.Component {
+class Search extends React.Component {
 
     state = {
         search: "",
@@ -42,24 +42,22 @@ class Food extends React.Component {
     handleSubmit = () => {
         const value = this._form.getValue()
         console.log(value)
+        this.props.selectedFood()
     }
 
     handleFoodPress = (food) => {
         console.log(food)
         this.setState({food})
+        this.props.selectFood(food)
     }
 
 
 
     render () {
-        console.log(this.state.food, "food")
-        console.log(this.state.selectedMeal, "selectedMeal")
+        // console.log(this.props.selectFood, "props")
         return (
           <View style={styles.container}>
-             <Form  
-                ref={c => this._form = c} 
-                type={AddFood} 
-                />
+        
                                 <Searchbar
                                     inputStyle={{backgroundColor: 'white'}}
                                     containerStyle={{backgroundColor: 'white', borderWidth: 1, borderRadius: 5}}
@@ -83,7 +81,7 @@ class Food extends React.Component {
     }
 } //end of MyInfo Class
 
-export default connect(mapStateToProps)(Food)
+export default connect(mapStateToProps, {selectFood})(Search)
 
   function mapStateToProps(state){
     return{
