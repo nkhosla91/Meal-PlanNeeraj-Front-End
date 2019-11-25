@@ -15,7 +15,7 @@ class FullAppNavigator extends React.Component {
       }
 
     render (){
-    console.log(this.props, "fullap")
+    // console.log(this.props, "fullap")
         if(!this.props.loggedIn){
             return (
                 <AuthNavigation />

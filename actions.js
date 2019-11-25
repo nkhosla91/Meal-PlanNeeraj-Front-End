@@ -3,6 +3,6 @@ export function selectFood(food) {
   }
 
   export function allFood(food) {
-    console.log("actiomn")
+    // console.log("action")
     return {type: "ALL_FOOD", payload: food}
   }

@@ -24,7 +24,6 @@ class Search extends React.Component {
 
     state = {
         search: "",
-        selectedMeal: null,
         food: {
             id: null,
             name: null,
@@ -41,12 +40,12 @@ class Search extends React.Component {
 
     handleSubmit = () => {
         const value = this._form.getValue()
-        console.log(value)
+        // console.log(value)
         this.props.selectedFood()
     }
 
     handleFoodPress = (food) => {
-        console.log(food)
+        // console.log(food)
         this.setState({food})
         this.props.selectFood(food)
         this.props.navigation.navigate('Show')

@@ -9,14 +9,14 @@ const Form = t.form.Form
 
 
 
-  const Meal = t.enums({
+  const Mealtime = t.enums({
     breakfast: 'Breakfast',
     lunch: 'Lunch',
     dinner: 'Dinner'
   })
 
 const AddFood = t.struct({
-    meal: Meal
+    mealtime: Mealtime
 })
 
 
@@ -24,14 +24,35 @@ const breakfastMeals = [ {id: 1, name: "Kid's Minestrone Soup", carbs: 8, fat: 1
 
 class Show extends React.Component {
 
+
+  handleSubmit = () => {
+    const value = this._form.getValue()
+    const userfood = {
+      user_id: this.props.user["id"],
+      food_id: this.props.selectFood["id"],
+      mealtime: value["mealtime"]
+    }
+    console.log(userfood, "userfood")
+
+    return fetch('http://10.9.110.172:3000/api/v1/userfoods', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userfood),
+    }) .then(this.props.navigation.navigate('Meals'))
+  }//end of handle submit
+
+
   
     render () {
-        console.log(this.props.selectFood, "selected")
+        // console.log(this.state)
     return (
         <View style={styles.container}>
         <Text style={styles.paragraph}> 
             </Text>
-            <Text style={styles.paragraph}> 
+            <Text style={styles.paragraph}>
                 Food
             </Text>
             <Form  
@@ -44,7 +65,7 @@ class Show extends React.Component {
          <Text>Fat: {this.props.selectFood["fat"]} g</Text>
          <Text>Protein: {this.props.selectFood["protein"]} g</Text>
 
-        <Button title="Add Food!"/>
+        <Button onPress={this.handleSubmit} title="Add Food!"/>
 
         </View>
     )
@@ -55,7 +76,8 @@ export default connect(mapStateToProps)(Show)
 
 function mapStateToProps(state){
     return{
-        selectFood: state.selectFood
+        selectFood: state.selectFood,
+        user: state.user
     }
 }
 
