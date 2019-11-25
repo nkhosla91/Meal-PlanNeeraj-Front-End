@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import {Icon, Button, Container, Header, Content, TouchableOpacity} from 'native-base'
 import {connect} from 'react-redux'
-
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { Searchbar } from 'react-native-paper';
 import { selectFood }from '../../actions'
 
@@ -49,14 +49,17 @@ class Search extends React.Component {
         console.log(food)
         this.setState({food})
         this.props.selectFood(food)
+        this.props.navigation.navigate('Show')
     }
 
 
 
     render () {
-        // console.log(this.props.selectFood, "props")
+        // console.log(this.props.allFood, "props")
         return (
+          <KeyboardAwareScrollView  contentContainerStyle={{flexGrow: 1}}>
           <View style={styles.container}>
+            <Text>Search Foods</Text>
         
                                 <Searchbar
                                     inputStyle={{backgroundColor: 'white'}}
@@ -64,8 +67,8 @@ class Search extends React.Component {
                                     placeholder={'Search food here'}
                                     onChangeText={this.updateSearch}
                                     />  
-                {/* <Text> */}
-                {this.props.food.filter(foods =>{
+            
+                {this.props.allFood.filter(foods =>{
                     // console.log(foods["name"], "hi")
                         return foods["name"].includes(this.state.search)}).map(food => {
                             // console.log(food["id"])
@@ -75,8 +78,9 @@ class Search extends React.Component {
                         )
                         })
                       }
-                {/* </Text> */}
+              
           </View>
+          </KeyboardAwareScrollView>
         )
     }
 } //end of MyInfo Class
@@ -85,7 +89,7 @@ export default connect(mapStateToProps, {selectFood})(Search)
 
   function mapStateToProps(state){
     return{
-       food: state.food
+       allFood: state.allFood
     }
   }
 
