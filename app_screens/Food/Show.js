@@ -27,6 +27,8 @@ class Show extends React.Component {
 
 
   handleSubmit = () => {
+    const value = this._form.getValue()
+    
     const date = new Date().getDate(); //Current Date
     const month = new Date().getMonth() + 1; //Current Month
     const year = new Date().getFullYear(); //Current Year
