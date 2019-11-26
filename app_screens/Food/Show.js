@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Button } from 'react-native'
 import MealContainer from '/Users/flatironschool/Documents/FINAL PROJECT - MOD 5/Meal-Planneeraj-Front-End/containers/MealContainer.js'
 import t from 'tcomb-form-native'
 import {connect} from 'react-redux'
+import { addSessionFoods }from '../../actions'
 
 const Form = t.form.Form
 
@@ -27,12 +28,20 @@ class Show extends React.Component {
 
   handleSubmit = () => {
     const value = this._form.getValue()
+    const sessionFood = {
+      Name: this.props.selectFood["name"],
+      Calories: this.props.selectFood["calories"],
+      Carbohydrates: this.props.selectFood["carbs"],
+      Fat: this.props.selectFood["fat"],
+      Protein: this.props.selectFood["protein"],
+      mealtime: value["mealtime"]
+    }
     const userfood = {
       user_id: this.props.user["id"],
       food_id: this.props.selectFood["id"],
       mealtime: value["mealtime"]
     }
-    console.log(userfood, "userfood")
+    // console.log(userfood, "userfood")
 
     return fetch('http://10.9.110.172:3000/api/v1/userfoods', {
       method: 'POST',
@@ -41,7 +50,9 @@ class Show extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(userfood),
-    }) .then(this.props.navigation.navigate('Meals'))
+    }) 
+    .then(this.props.addSessionFoods(sessionFood))
+    .then(this.props.navigation.navigate('Meals'))
   }//end of handle submit
 
 
@@ -72,7 +83,7 @@ class Show extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(Show)
+export default connect(mapStateToProps, {addSessionFoods})(Show)
 
 function mapStateToProps(state){
     return{

@@ -3,15 +3,19 @@ import React from 'react';
 import AppNavigation from './AppNavigation'
 import AuthNavigation from './AuthNavigation'
 import {connect} from 'react-redux'
-import { allFood }from './actions'
+import { allFood, fetchUserFoods }from './actions'
 
 
 class FullAppNavigator extends React.Component {
   
     componentDidMount() {
-        return fetch('http://10.9.110.172:3000/api/v1/foods')
+        fetch('http://10.9.108.118:3000/api/v1/foods')
           .then(response => response.json())
           .then(data => this.props.allFood(data))
+
+        fetch('http://10.9.108.118:3000/api/v1/userfoods')
+          .then(response => response.json())
+          .then(data => this.props.fetchUserFoods(data))
       }
 
     render (){
@@ -29,7 +33,7 @@ class FullAppNavigator extends React.Component {
   
   }//end of FullAppNavigator Class
 
-  export default connect(mapStateToProps,{allFood})(FullAppNavigator)
+  export default connect(mapStateToProps,{allFood, fetchUserFoods})(FullAppNavigator)
 
   function mapStateToProps(state){
     return{
