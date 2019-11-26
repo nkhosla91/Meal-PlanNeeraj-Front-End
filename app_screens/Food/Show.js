@@ -42,7 +42,7 @@ class Show extends React.Component {
       "food": {
           "name": this.props.selectFood["name"],
           "calories": this.props.selectFood["calories"],
-          "carbohydrates": this.props.selectFood["carbs"],
+          "carbs": this.props.selectFood["carbs"],
           "fat": this.props.selectFood["fat"],
           "protein": this.props.selectFood["protein"],
         },

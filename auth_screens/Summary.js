@@ -4,7 +4,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { LineChart, BarChart, Grid } from "react-native-chart-kit"
 
 
-export default class AccountInfo extends React.Component {
+export default class Summary extends React.Component {
 
     
     render () {
@@ -13,7 +13,7 @@ export default class AccountInfo extends React.Component {
         <KeyboardAwareScrollView  contentContainerStyle={{flexGrow: 1}}>
             <View style={styles.container}>
                 <Text style={styles.paragraph}> 
-                   DAILY SUMMARY
+                   DAILY CALORIC BREAKDOWN
                 </Text>
                 <View>
   
@@ -31,7 +31,7 @@ export default class AccountInfo extends React.Component {
                           }
                         ]
                       }}
-                      width={330} // from react-native
+                      width={375} // from react-native
                       height={220}
                       chartConfig={{
                         backgroundColor: "#e26a00",
@@ -51,6 +51,8 @@ export default class AccountInfo extends React.Component {
                     />
                     
                   </View>
+      
+                    <Text style={styles.calorieContainer}>Carbs: {Math.round(this.props.screenProps.carbCalories)}       Fat: {Math.round(this.props.screenProps.fatCalories)}       Protein: {Math.round(this.props.screenProps.proteinCalories)}</Text>
                 <Button
                   title="Create User"
                   onPress={this.props.screenProps.handleCreateUser}
@@ -80,5 +82,26 @@ const styles = StyleSheet.create({
     chartConfig: {
       backgroundColor: '#e26a00',
       color: () => `rgb(255, 255, 255)`
-    }
+    },
+    calorieContainer:  {
+      backgroundColor: '#B3A5FD',
+      borderRadius: 14,
+      padding: 10,
+      borderWidth: 1,
+      borderRadius: 2,
+      borderColor: '#ddd',
+      borderBottomWidth: 0,
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.8,
+      shadowRadius: 2,
+      elevation: 1,
+      marginLeft: 5,
+      marginRight: 5,
+      marginBottom: 10,
+      textAlign: 'center',
+      marginTop: 10,
+      marginBottom: 10,
+      fontWeight: 'bold'
+    },
   })

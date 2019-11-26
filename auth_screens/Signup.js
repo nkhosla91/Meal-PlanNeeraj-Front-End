@@ -4,6 +4,9 @@ import AccountInfo from './AccountInfo'
 import PersonalInfo from './PersonalInfo'
 import Macros from './Macros'
 import Summary from './Summary'
+import { FluidNavigator, Transition } from 'react-navigation-fluid-transitions'
+import { zoomIn } from 'react-navigation-transitions';
+
 
 const SignupStack = createStackNavigator(
   {
@@ -14,6 +17,7 @@ const SignupStack = createStackNavigator(
   },
   {
     initialRouteName: 'AccountInfo',
+    transitionConfig: () => zoomIn(1000),
     headerMode: 'none'
   }
 )
