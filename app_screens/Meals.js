@@ -35,21 +35,31 @@ class Meals extends React.Component {
     render () {
         // console.log(this.props.sessionFoods, "?")
     return (
-    <KeyboardAwareScrollView contentContainerStyle={{flexgrow: 1}}>
+
         <View style={styles.container}>
         <Text style={styles.paragraph}> 
             </Text>
             <Text style={styles.paragraph}> 
                 My Meals
             </Text>
-            <Text style={styles.meal}>Breakfast</Text>
-            <MealContainer mealFoods={this.userMeals("breakfast")}/>
-            <Text style={styles.meal}>Lunch</Text>
-            <MealContainer mealFoods={this.userMeals("lunch")}/>
-            <Text style={styles.meal}>Dinner</Text>
-            <MealContainer mealFoods={this.userMeals("dinner")}/>
+
+            <Text style={styles.mealTitle}>Breakfast</Text>
+              <View style={styles.meal}>
+                  <MealContainer mealFoods={this.userMeals("breakfast")}/>
+              </View>
+
+              <Text style={styles.mealTitle}>Lunch</Text>
+              <View style={styles.meal}>
+                  <MealContainer mealFoods={this.userMeals("lunch")}/>
+              </View>
+
+              <Text style={styles.mealTitle}>Dinner</Text>
+              <View style={styles.meal}>
+                  <MealContainer mealFoods={this.userMeals("dinner")}/>
+              </View>
+
         </View>
-        </KeyboardAwareScrollView>
+  
     
     )
   }
@@ -69,25 +79,40 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#C5FFCA',
       //   marginTop: 150,
-        padding: 20,
-        justifyContent: 'center'
+        justifyContent: 'flex-start'
       },
       paragraph: {
-        flex: 1,
+        // flex: 1,
         padding: 24,
-        fontSize: 18,
         textAlign: 'center',
         fontSize: 40,
         fontWeight: 'bold',
         fontFamily: 'Cochin'
       },
-      meal: {
-        flex: 1,
-        padding: 20,
+      mealTitle: {
+        padding:10,
         fontSize: 20,
         textAlign: 'left',
         fontWeight: 'bold',
         fontFamily: 'Cochin'
+      },
+      meal: {
+        backgroundColor: '#B3A5FD',
+        borderRadius: 14,
+        padding: 10,
+        borderWidth: 1,
+        borderRadius: 2,
+        borderColor: '#ddd',
+        borderBottomWidth: 0,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 1,
+        marginLeft: 5,
+        marginRight: 5,
+        marginBottom: 10
+
       }
 
   })

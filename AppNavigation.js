@@ -7,11 +7,11 @@ import Meals from './App_screens/Meals'
 
 export default createAppContainer (
   createDrawerNavigator({
-    Food: {
-      screen: FoodNavigator
-    },
     Meals: {
       screen: Meals
+    },
+    Food: {
+      screen: FoodNavigator
     },
     "My Info": {
       screen: MyInfo

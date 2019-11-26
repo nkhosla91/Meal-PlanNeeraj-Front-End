@@ -103,9 +103,8 @@ export default connect(mapStateToProps, {selectFood})(Search)
       flex: 1,
       // paddingVertical: 25,
       // paddingHorizontal: 15,
-      borderBottomWidth: 1,
-      borderBottomColor: 'white',
-      backgroundColor: '#8375FF',
+      borderBottomWidth: 3,
+      backgroundColor: '#B0A7FF',
       textAlign: 'center',
       justifyContent: "center",
       padding: 20

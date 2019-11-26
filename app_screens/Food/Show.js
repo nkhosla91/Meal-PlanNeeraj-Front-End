@@ -21,7 +21,7 @@ const AddFood = t.struct({
 })
 
 
-const breakfastMeals = [ {id: 1, name: "Kid's Minestrone Soup", carbs: 8, fat: 1, protein: 2, calories: 50}, { id: 2, name: "Kid's Sourdough Bread", carbs: 30, fat: 1, protein: 6, calories: 150}, {  id: 3, name: "Kid's Spaghetti with Tomato Sauce", carbs: 52, fat: 2, protein: 10, calories: 270} ]
+// const breakfastMeals = [ {id: 1, name: "Kid's Minestrone Soup", carbs: 8, fat: 1, protein: 2, calories: 50}, { id: 2, name: "Kid's Sourdough Bread", carbs: 30, fat: 1, protein: 6, calories: 150}, {  id: 3, name: "Kid's Spaghetti with Tomato Sauce", carbs: 52, fat: 2, protein: 10, calories: 270} ]
 
 class Show extends React.Component {
 
@@ -47,8 +47,8 @@ class Show extends React.Component {
           "protein": this.props.selectFood["protein"],
         },
       "mealtime": value["mealtime"]
-
     }
+
     const userfood = {
       user_id: this.props.user["id"],
       food_id: this.props.selectFood["id"],
@@ -66,31 +66,30 @@ class Show extends React.Component {
     }) 
     .then(this.props.addSessionFoods(sessionFood))
     .then(this.props.navigation.navigate('Meals'))
-  }//end of handle submit
-
-
+  }
+//end of handle submit
   
     render () {
         // console.log(this.state)
     return (
         <View style={styles.container}>
-        <Text style={styles.paragraph}> 
-            </Text>
-            <Text style={styles.paragraph}>
-                Food
-            </Text>
-            <Form  
-                ref={c => this._form = c} 
-                type={AddFood} 
-                />
-         <Text>Name: {this.props.selectFood["name"]}</Text>
-         <Text>Calories: {this.props.selectFood["calories"]}</Text>
-         <Text>Carbohydrates: {this.props.selectFood["carbs"]} g</Text>
-         <Text>Fat: {this.props.selectFood["fat"]} g</Text>
-         <Text>Protein: {this.props.selectFood["protein"]} g</Text>
-
-        <Button onPress={this.handleSubmit} title="Add Food!"/>
-
+          <Text style={styles.paragraph}> 
+              </Text>
+              <Text style={styles.paragraph}>
+                  Food
+              </Text>
+              <Form  
+                  ref={c => this._form = c} 
+                  type={AddFood} 
+                  />
+            <View style={styles.meal}>  
+              <Text>Name: {this.props.selectFood["name"]}</Text>
+              <Text>Calories: {this.props.selectFood["calories"]}</Text>
+              <Text>Carbohydrates: {this.props.selectFood["carbs"]} g</Text>
+              <Text>Fat: {this.props.selectFood["fat"]} g</Text>
+              <Text>Protein: {this.props.selectFood["protein"]} g</Text>
+              </View>    
+          <Button onPress={this.handleSubmit} title="Add Food!"/>
         </View>
     )
   }
@@ -122,11 +121,21 @@ const styles = StyleSheet.create({
         fontFamily: 'Cochin'
       },
       meal: {
-        marginBottom: 10,
-        fontSize: 20,
-        textAlign: 'left',
-        fontWeight: 'bold',
-        fontFamily: 'Cochin'
+        backgroundColor: '#B3A5FD',
+        borderRadius: 14,
+        padding: 10,
+        borderWidth: 1,
+        borderRadius: 2,
+        borderColor: '#ddd',
+        borderBottomWidth: 0,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 1,
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 10
       }
 
   })

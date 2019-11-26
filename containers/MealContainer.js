@@ -54,6 +54,6 @@ export default connect(mapStateToProps)(MealContainer)
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      borderColor: "black"
+      borderColor: "black",
     },
   });
