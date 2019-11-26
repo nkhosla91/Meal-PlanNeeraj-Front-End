@@ -29,10 +29,11 @@ const reducer = (prevState = initialState, action) => {
     case 'SELECT_FOOD':
       return {...prevState, selectFood: action.payload}
     case 'FETCH_USER_FOODS':
+
           return {...prevState, userFoods: action.payload}
     case 'ADD_SESSION_FOODS':
-      // console.log("addingsessionfo0od")
-          return {...prevState, sessionFoods: action.payload}
+      // console.log(action.payload, "payload")
+          return {...prevState, sessionFoods: [...prevState.sessionFoods, action.payload]}
     // case 'SELECTED_MEAL':
     //     return {selectedMeal: null}
     // case 'SET_USER':

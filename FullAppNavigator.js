@@ -16,6 +16,7 @@ class FullAppNavigator extends React.Component {
         fetch('http://10.9.108.118:3000/api/v1/userfoods')
           .then(response => response.json())
           .then(data => this.props.fetchUserFoods(data))
+
       }
 
     render (){

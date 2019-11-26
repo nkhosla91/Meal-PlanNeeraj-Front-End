@@ -9,22 +9,33 @@ import {connect} from 'react-redux'
 
 class Meals extends React.Component {
   
-  userBreakfastMeals = () => {
+  userMeals = (meal) => {
+
+    const date = new Date().getDate(); //Current Date
+    const month = new Date().getMonth() + 1; //Current Month
+    const year = new Date().getFullYear(); //Current Year
+    const hours = new Date().getHours(); //Current Hours
+    const fullDate = year + '-' + month + '-' + date
+   
+    // console.log(`${fullDate}`)
+
     if (this.props.userFoods) {
-      const allBreakfast = [...this.props.userFoods, ...this.props.sessionFoods]
-     return allBreakfast.filter(food => {
-      //  console.log(food)
-        return food["mealtime"] === "breakfast"
+      // console.log(this.props.userFoods, "user")
+      // console.log(this.props.sessionFoods, "sesssss")
+      const allMeals = [...this.props.userFoods, ...this.props.sessionFoods]
+     return allMeals.filter(food => {
+        // console.log(food["created_at"].slice(0,10))
+        return food["mealtime"] === meal && food["created_at"].slice(0,10) === fullDate
     
       })
-  
+      // console.log(allMeals)
     }
   }
   
     render () {
         // console.log(this.props.sessionFoods, "?")
     return (
-    <KeyboardAwareScrollView contentContainerStyle={{flex: 1}}>
+    <KeyboardAwareScrollView contentContainerStyle={{flexgrow: 1}}>
         <View style={styles.container}>
         <Text style={styles.paragraph}> 
             </Text>
@@ -32,11 +43,11 @@ class Meals extends React.Component {
                 My Meals
             </Text>
             <Text style={styles.meal}>Breakfast</Text>
-            <MealContainer userFoods={this.userBreakfastMeals()}/>
-            {/* <Text style={styles.meal}>Lunch</Text>
-            <MealContainer data={breakfastMeals}/>
+            <MealContainer mealFoods={this.userMeals("breakfast")}/>
+            <Text style={styles.meal}>Lunch</Text>
+            <MealContainer mealFoods={this.userMeals("lunch")}/>
             <Text style={styles.meal}>Dinner</Text>
-            <MealContainer data={breakfastMeals}/> */}
+            <MealContainer mealFoods={this.userMeals("dinner")}/>
         </View>
         </KeyboardAwareScrollView>
     
@@ -55,6 +66,7 @@ export default connect(mapStateToProps)(Meals)
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         backgroundColor: '#C5FFCA',
       //   marginTop: 150,
         padding: 20,

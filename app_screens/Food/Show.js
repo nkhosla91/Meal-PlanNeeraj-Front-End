@@ -27,14 +27,25 @@ class Show extends React.Component {
 
 
   handleSubmit = () => {
-    const value = this._form.getValue()
+    const date = new Date().getDate(); //Current Date
+    const month = new Date().getMonth() + 1; //Current Month
+    const year = new Date().getFullYear(); //Current Year
+    const hours = new Date().getHours(); //Current Hours
+    const min = new Date().getMinutes(); //Current Minutes
+    const sec = new Date().getSeconds(); //Current Seconds
+    const fullDate = year + '-' + month + '-' + date + ' ' + hours + ':' + min + ':' + sec
+    
     const sessionFood = {
-      Name: this.props.selectFood["name"],
-      Calories: this.props.selectFood["calories"],
-      Carbohydrates: this.props.selectFood["carbs"],
-      Fat: this.props.selectFood["fat"],
-      Protein: this.props.selectFood["protein"],
-      mealtime: value["mealtime"]
+      "created_at": `${fullDate}`,
+      "food": {
+          "name": this.props.selectFood["name"],
+          "calories": this.props.selectFood["calories"],
+          "carbohydrates": this.props.selectFood["carbs"],
+          "fat": this.props.selectFood["fat"],
+          "protein": this.props.selectFood["protein"],
+        },
+      "mealtime": value["mealtime"]
+
     }
     const userfood = {
       user_id: this.props.user["id"],
@@ -43,7 +54,7 @@ class Show extends React.Component {
     }
     // console.log(userfood, "userfood")
 
-    return fetch('http://10.9.110.172:3000/api/v1/userfoods', {
+    return fetch('http://10.9.108.118:3000/api/v1/userfoods', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
