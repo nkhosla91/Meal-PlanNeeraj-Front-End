@@ -33,7 +33,7 @@ class MealContainer extends React.Component {
       // console.log(this.props.mealFoods)
         return (
             <FlatList 
-                style={styles.container}
+                // style={styles.container}
                 data={this.findFoods()}
                 renderItem={({item}) => <Text key={item["created_at"]}>{item["food"]["name"]}</Text>}
                 keyExtractor={item => item["created_at"]}
@@ -54,6 +54,6 @@ export default connect(mapStateToProps)(MealContainer)
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginBottom: 20
+      borderColor: "black"
     },
   });

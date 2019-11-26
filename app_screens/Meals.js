@@ -73,7 +73,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
       },
       paragraph: {
-        marginBottom: 24,
+        flex: 1,
+        padding: 24,
         fontSize: 18,
         textAlign: 'center',
         fontSize: 40,
@@ -81,7 +82,8 @@ const styles = StyleSheet.create({
         fontFamily: 'Cochin'
       },
       meal: {
-        marginBottom: 10,
+        flex: 1,
+        padding: 20,
         fontSize: 20,
         textAlign: 'left',
         fontWeight: 'bold',

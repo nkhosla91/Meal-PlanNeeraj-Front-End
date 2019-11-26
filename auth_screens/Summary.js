@@ -13,7 +13,7 @@ export default class AccountInfo extends React.Component {
         <KeyboardAwareScrollView  contentContainerStyle={{flexGrow: 1}}>
             <View style={styles.container}>
                 <Text style={styles.paragraph}> 
-                    SUMMARY
+                   DAILY SUMMARY
                 </Text>
                 <View>
   

@@ -23,7 +23,7 @@ import { selectFood }from '../../actions'
 class Search extends React.Component {
 
     state = {
-        search: "",
+        search: null,
         food: {
             id: null,
             name: null,
@@ -58,11 +58,11 @@ class Search extends React.Component {
         return (
           <KeyboardAwareScrollView  contentContainerStyle={{flexGrow: 1}}>
           <View style={styles.container}>
-            <Text>Search Foods</Text>
+            <Text style={styles.title}>Search Foods</Text>
         
                                 <Searchbar
                                     inputStyle={{backgroundColor: 'white'}}
-                                    containerStyle={{backgroundColor: 'white', borderWidth: 1, borderRadius: 5}}
+                                    containerStyle={{backgroundColor: 'white', borderWidth: 1, borderRadius: 5, padding: 20}}
                                     placeholder={'Search food here'}
                                     onChangeText={this.updateSearch}
                                     />  
@@ -72,7 +72,7 @@ class Search extends React.Component {
                         return foods["name"].includes(this.state.search)}).map(food => {
                             // console.log(food["id"])
                             return (      
-                            <Button onPress={this.handleFoodPress.bind(this, food)} style={styles.paragraph} key={food["id"]}><Text style={styles.paragraph}>{food["name"]}</Text></Button>   
+                            <Button onPress={this.handleFoodPress.bind(this, food)} style={styles.row} key={food["id"]}><Text style={styles.text}>{food["name"]}</Text></Button>   
                            
                         )
                         })
@@ -95,18 +95,40 @@ export default connect(mapStateToProps, {selectFood})(Search)
 
 
   const styles = StyleSheet.create({
-    paragraph: {
-      marginBottom: 10,
-      textAlign: 'center',
+    row: {
       fontSize: 15,
       fontWeight: 'bold',
-      fontFamily: 'Cochin'
+      fontFamily: 'Cochin',
+      
+      flex: 1,
+      // paddingVertical: 25,
+      // paddingHorizontal: 15,
+      borderBottomWidth: 1,
+      borderBottomColor: 'white',
+      backgroundColor: '#8375FF',
+      textAlign: 'center',
+      justifyContent: "center",
+      padding: 20
     },
     container: {
         flex: 1,
         backgroundColor: '#C5FFCA',
       //   marginTop: 150,
-        padding: 20,
-        justifyContent: 'center'
+        padding: 75,
+        justifyContent: 'flex-start'
+      },
+      title: {
+        marginBottom: 24,
+        textAlign: 'center',
+        fontSize: 40,
+        fontWeight: 'bold',
+        fontFamily: 'Cochin',
+      },
+      text: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        fontFamily: 'Cochin',
+        justifyContent: 'center',
+        textAlign: 'center'
       }
   })
