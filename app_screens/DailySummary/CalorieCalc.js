@@ -9,7 +9,7 @@ import {connect} from 'react-redux'
 class CalorieCalc extends React.Component {
 
   state = {
-    calories: null
+    calories: 0
   }
 
    getCalories = () => {
@@ -24,11 +24,11 @@ class CalorieCalc extends React.Component {
       
       let calories = null
      
-      allMeals.filter(food => {
-        return food["created_at"].slice(0,10) === fullDate
-       })
+      let dailyMeals = allMeals.filter(food => {
+                                return food["created_at"].slice(0,10) === fullDate
+                            })
       
-      allMeals.forEach(meal => {
+      dailyMeals.forEach(meal => {
         calories = calories + meal["food"]["calories"]
        
       })
@@ -41,8 +41,8 @@ class CalorieCalc extends React.Component {
     //   console.log(this.state)
         return (
             <View style={styles.container}>
-                <Text style={styles.text}>{this.props.user["calories"]}     -    {this.getCalories()}   =   {this.props.user["calories"] - this.getCalories()} </Text>
-                <Text style={styles.text}>TDEE - Daily Cals = Remaining Cals</Text>
+                <Text style={styles.text}>{this.props.user["calories"]}     -    {this.getCalories()}     =   {this.props.user["calories"] - this.getCalories()} </Text>
+                <Text style={styles.text}>TDEE  -  Daily Cals  =  Rem. Cals</Text>
             </View>
         
         )

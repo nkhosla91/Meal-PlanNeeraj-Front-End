@@ -11,7 +11,7 @@ const initialState = {
   allFood: [],
   userfoods: [],
   sessionFoods: [],
-  loggedIn: false,
+  loggedIn: true,
   selectFood: {},
 }
 

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Dimensions } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { PieChart, ProgressChart } from "react-native-chart-kit"
 import {connect} from 'react-redux'
+// import { VictoryPie } from 'victory-native';
 
 
 class MacroPie extends React.Component {
@@ -25,16 +26,16 @@ class MacroPie extends React.Component {
     if (this.props.userFoods) {
      
       const allMeals = [...this.props.userFoods, ...this.props.sessionFoods]
-      allMeals.filter(food => {
-        return food["created_at"].slice(0,10) === fullDate
-       })
-      
-      allMeals.forEach(meal => {
+      let dailyMeals = allMeals.filter(food => {
+                          return food["created_at"].slice(0,10) === fullDate
+                        })
+      // console.log(allMeals)
+      dailyMeals.forEach(meal => {
         carbs = carbs + meal["food"]["carbs"]
         fat = fat + meal["food"]["fat"]
         protein = protein + meal["food"]["protein"]
       })
-      console.log(fat, carbs, protein)
+      // console.log(fat, carbs, protein)
       
       data = [
         {
@@ -68,9 +69,10 @@ class MacroPie extends React.Component {
     render () {
         // console.log(this.props.screenProps)
     return (
+      <View>
                 <PieChart
                     data={this.pieData()}
-                    width={Dimensions.get('window').width - 16}
+                                    width={Dimensions.get('window').width - 16}
                     height={220}
                     chartConfig={{
                       backgroundColor: '#1cc910',
@@ -89,7 +91,9 @@ class MacroPie extends React.Component {
                     accessor="macro"
                     backgroundColor="transparent"
                   />
-              
+             
+
+                </View>
     
     )
   }
