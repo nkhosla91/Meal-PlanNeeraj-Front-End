@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, FlatList, Animate } from 'react-native'
 import {connect} from 'react-redux'
-import AnimatedFlatlist from 'react-native-animated-flatlist'
+// import AnimatedFlatlist from 'react-native-animated-flatlist'
 
 
 // const ds = new FlatList.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});

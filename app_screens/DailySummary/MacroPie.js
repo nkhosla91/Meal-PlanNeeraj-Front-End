@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Button, Dimensions } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { PieChart, ProgressChart } from "react-native-chart-kit"
 import {connect} from 'react-redux'
-import { VictoryPie } from 'victory-native';
+// import { VictoryPie } from 'victory-native';
 
 
 class MacroPie extends React.Component {
