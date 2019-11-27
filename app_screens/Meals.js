@@ -16,7 +16,7 @@ class Meals extends React.Component {
     const year = new Date().getFullYear(); //Current Year
     // const hours = new Date().getHours(); //Current Hours
     const fullDate = year + '-' + month + '-' + date
-   
+  
     // console.log(`${fullDate}`)
 
     if (this.props.userFoods) {

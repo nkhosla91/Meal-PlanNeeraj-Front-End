@@ -41,8 +41,8 @@ class CalorieCalc extends React.Component {
     //   console.log(this.state)
         return (
             <View style={styles.container}>
-                <Text style={styles.text}>{this.props.user["calories"]}     -    {this.getCalories()}   =   {this.props.user["calories"] - this.getCalories()} </Text>
-                <Text style={styles.text}>TDEE - Daily Cals = Remaining Cals</Text>
+                <Text style={styles.text}>{this.props.user["calories"]}     -    {this.getCalories()}     =   {this.props.user["calories"] - this.getCalories()} </Text>
+                <Text style={styles.text}>TDEE  -  Daily Cals  =  Rem. Cals</Text>
             </View>
         
         )
