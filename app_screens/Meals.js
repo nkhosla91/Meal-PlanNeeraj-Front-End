@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import MealContainer from '../containers/MealContainer'
 import {connect} from 'react-redux'
+import Slider from './Slider'
 
 
 
@@ -56,7 +57,10 @@ class Meals extends React.Component {
               <View style={styles.meal}>
                   <MealContainer mealFoods={this.userMeals("dinner")}/>
               </View>
+              <Text style={styles.paragraph}> 
+             </Text>
 
+              <Slider style={{marginTop: '20'}}/>
         </View>
   
     

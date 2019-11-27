@@ -1,10 +1,11 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
-// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import MealContainer from '/Users/flatironschool/Documents/FINAL PROJECT - MOD 5/Meal-Planneeraj-Front-End/containers/MealContainer.js'
 import t from 'tcomb-form-native'
 import {connect} from 'react-redux'
 import { addSessionFoods }from '../../actions'
+import Slider from '/Users/flatironschool/Documents/FINAL PROJECT - MOD 5/Meal-Planneeraj-Front-End/App_screens/Slider.js'
 
 const Form = t.form.Form
 
@@ -72,16 +73,28 @@ class Show extends React.Component {
     render () {
         // console.log(this.state)
     return (
-        <View style={styles.container}>
+
+  
+      
+      <View style={styles.container}>
+       <Text style={styles.top}>
+  
+    </Text>
+         <Slider style={styles.meal}/>
+
           <Text style={styles.paragraph}> 
               </Text>
-              <Text style={styles.paragraph}>
-                  Food
+              <Text style={styles.paragraph}>              
               </Text>
-              <Form  
-                  ref={c => this._form = c} 
-                  type={AddFood} 
-                  />
+
+            <View style={{padding:20}}>
+                  <Form  
+                      ref={c => this._form = c} 
+                      type={AddFood} 
+                      
+                      />
+            </View>
+
             <View style={styles.meal}>  
               <Text>Name: {this.props.selectFood["name"]}</Text>
               <Text>Calories: {this.props.selectFood["calories"]}</Text>
@@ -89,8 +102,9 @@ class Show extends React.Component {
               <Text>Fat: {this.props.selectFood["fat"]} g</Text>
               <Text>Protein: {this.props.selectFood["protein"]} g</Text>
               </View>    
-          <Button onPress={this.handleSubmit} title="Add Food!"/>
+          <Button  style={{padding:20}} onPress={this.handleSubmit} title="Add Food!"/>
         </View>
+
     )
   }
 }
@@ -108,9 +122,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#C5FFCA',
-      //   marginTop: 150,
-        padding: 20,
-        justifyContent: 'center'
+
+        justifyContent: 'flex-start'
       },
       paragraph: {
         marginBottom: 24,
@@ -135,7 +148,16 @@ const styles = StyleSheet.create({
         elevation: 1,
         marginLeft: 5,
         marginRight: 5,
-        marginTop: 10
+        marginTop: 10,
+        marginBottom: 10
+      },
+      slider: {
+        flex: 1,
+        padding: 0
+
+      },
+      top: {
+        marginTop:100
       }
 
   })
