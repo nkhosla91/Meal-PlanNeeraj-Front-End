@@ -14,7 +14,7 @@ class Meals extends React.Component {
     const date = new Date().getDate(); //Current Date
     const month = new Date().getMonth() + 1; //Current Month
     const year = new Date().getFullYear(); //Current Year
-    const hours = new Date().getHours(); //Current Hours
+    // const hours = new Date().getHours(); //Current Hours
     const fullDate = year + '-' + month + '-' + date
    
     // console.log(`${fullDate}`)
@@ -28,7 +28,6 @@ class Meals extends React.Component {
         return food["mealtime"] === meal && food["created_at"].slice(0,10) === fullDate
     
       })
-      // console.log(allMeals)
     }
   }
   
