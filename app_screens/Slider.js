@@ -10,7 +10,7 @@ class Slider extends React.Component {
 
     state = {
         images: [
-          'https://source.unsplash.com/1024x768/?nature',
+          'https://i0.wp.com/lisamdecker.com/wp-content/uploads/2017/03/mealplanning.jpeg?fit=320%2C213&ssl=1',
           'https://source.unsplash.com/1024x768/?water',
           'https://source.unsplash.com/1024x768/?girl',
           'https://source.unsplash.com/1024x768/?tree'

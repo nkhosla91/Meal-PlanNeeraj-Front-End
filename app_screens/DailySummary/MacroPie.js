@@ -16,17 +16,26 @@ class MacroPie extends React.Component {
     const month = new Date().getMonth() + 1; //Current Month
     const year = new Date().getFullYear(); //Current Year
     const hours = new Date().getHours(); //Current Hours
-    const fullDate = year + '-' + month + '-' + date
+
+    function pad2(date) {
+      return (date < 10 ? '0' : '') + date
+  }
+
+    newDay=pad2(date)
+
+    const fullDate = year + '-' + month + '-' + newDay
     
     let carbs = 0
     let fat = 0
     let protein = 0
     let data = []
 
+
     if (this.props.userFoods) {
      
       const allMeals = [...this.props.userFoods, ...this.props.sessionFoods]
       let dailyMeals = allMeals.filter(food => {
+        // console.log(food["created_at"])
                           return food["created_at"].slice(0,10) === fullDate
                         })
       // console.log(allMeals)
@@ -35,7 +44,7 @@ class MacroPie extends React.Component {
         fat = fat + meal["food"]["fat"]*9
         protein = protein + meal["food"]["protein"]*4
       })
-      // console.log(fat, carbs, protein)
+      // console.log(fat, carbs, protein, fullDate)
       
       data = [
         {
@@ -67,7 +76,7 @@ class MacroPie extends React.Component {
 }
 
     render () {
-        // console.log(this.props.screenProps)
+        // console.log(this.props, "props")
     return (
       <View>
                 <PieChart

@@ -18,11 +18,18 @@ class CalorieCalc extends React.Component {
 
    getCalories = () => {
      if (this.props.userFoods) {
-        const date = new Date().getDate(); //Current Date
-        const month = new Date().getMonth() + 1; //Current Month
-        const year = new Date().getFullYear(); //Current Year
-        const hours = new Date().getHours(); //Current Hours
-        const fullDate = year + '-' + month + '-' + date
+      const date = new Date().getDate(); //Current Date
+      const month = new Date().getMonth() + 1; //Current Month
+      const year = new Date().getFullYear(); //Current Year
+      const hours = new Date().getHours(); //Current Hours
+  
+      function pad2(date) {
+        return (date < 10 ? '0' : '') + date
+    }
+  
+      newDay=pad2(date)
+  
+      const fullDate = year + '-' + month + '-' + newDay
 
       const allMeals = [...this.props.userFoods, ...this.props.sessionFoods]
       

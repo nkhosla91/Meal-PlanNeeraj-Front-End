@@ -36,9 +36,10 @@ class MealContainer extends React.Component {
             <FlatList 
                 // style={styles.container}
                 data={this.findFoods()}
-                renderItem={({item}) => <Text key={item["created_at"]}>{item["food"]["name"]}</Text>}
+                renderItem={({item}) => <Text subtitle={item["calories"]} key={item["created_at"]}>{item["food"]["name"]}</Text>}
                 keyExtractor={item => item["created_at"]}
-            />
+                ListFooterComponent={this.props.mealTime}
+              />
         
         )
     }

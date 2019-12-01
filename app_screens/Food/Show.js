@@ -30,13 +30,22 @@ class Show extends React.Component {
   handleSubmit = () => {
     const value = this._form.getValue()
     
+
+
     const date = new Date().getDate(); //Current Date
     const month = new Date().getMonth() + 1; //Current Month
     const year = new Date().getFullYear(); //Current Year
     const hours = new Date().getHours(); //Current Hours
     const min = new Date().getMinutes(); //Current Minutes
     const sec = new Date().getSeconds(); //Current Seconds
-    const fullDate = year + '-' + month + '-' + date + ' ' + hours + ':' + min + ':' + sec
+
+    function pad2(date) {
+      return (date < 10 ? '0' : '') + date
+  }
+
+    newDay=pad2(date)
+
+    const fullDate = year + '-' + month + '-' + newDay + ' ' + hours + ':' + min + ':' + sec
     
     const sessionFood = {
       "created_at": `${fullDate}`,

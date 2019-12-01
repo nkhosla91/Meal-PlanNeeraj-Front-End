@@ -4,6 +4,9 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import MealContainer from '../containers/MealContainer'
 import {connect} from 'react-redux'
 import Slider from './Slider'
+import BreakfastCalories from '../containers/BreakfastCalories'
+import LunchCalories from '../containers/LunchCalories'
+import DinnerCalories from '../containers/DinnerCalories'
 
 
 
@@ -15,8 +18,15 @@ class Meals extends React.Component {
     const date = new Date().getDate(); //Current Date
     const month = new Date().getMonth() + 1; //Current Month
     const year = new Date().getFullYear(); //Current Year
-    // const hours = new Date().getHours(); //Current Hours
-    const fullDate = year + '-' + month + '-' + date
+    const hours = new Date().getHours(); //Current Hours
+
+    function pad2(date) {
+      return (date < 10 ? '0' : '') + date
+  }
+
+    newDay=pad2(date)
+
+    const fullDate = year + '-' + month + '-' + newDay
   
     // console.log(`${fullDate}`)
 
@@ -45,22 +55,22 @@ class Meals extends React.Component {
 
             <Text style={styles.mealTitle}>Breakfast</Text>
               <View style={styles.meal}>
-                  <MealContainer mealFoods={this.userMeals("breakfast")}/>
+                  <MealContainer mealTime={BreakfastCalories} mealFoods={this.userMeals("breakfast")}/>
               </View>
 
               <Text style={styles.mealTitle}>Lunch</Text>
               <View style={styles.meal}>
-                  <MealContainer mealFoods={this.userMeals("lunch")}/>
+                  <MealContainer mealTime={LunchCalories} mealFoods={this.userMeals("lunch")}/>
               </View>
 
               <Text style={styles.mealTitle}>Dinner</Text>
               <View style={styles.meal}>
-                  <MealContainer mealFoods={this.userMeals("dinner")}/>
+                  <MealContainer mealTime={DinnerCalories} mealFoods={this.userMeals("dinner")}/>
               </View>
               <Text style={styles.paragraph}> 
              </Text>
 
-              <Slider style={{marginTop: '20'}}/>
+              <Slider style={{marginTop: 2}}/>
         </View>
   
     
