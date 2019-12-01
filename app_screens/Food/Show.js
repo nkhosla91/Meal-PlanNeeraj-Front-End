@@ -57,7 +57,7 @@ class Show extends React.Component {
     }
     // console.log(userfood, "userfood")
 
-    return fetch('http://10.9.105.109:3000/api/v1/userfoods', {
+    return fetch('http://192.168.0.70:3000/api/v1/userfoods', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

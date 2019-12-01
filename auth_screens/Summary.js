@@ -31,7 +31,7 @@ export default class Summary extends React.Component {
                           }
                         ]
                       }}
-                      width={375} // from react-native
+                      width={330} // from react-native
                       height={220}
                       chartConfig={{
                         backgroundColor: "#e26a00",

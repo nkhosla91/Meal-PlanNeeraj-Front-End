@@ -33,6 +33,7 @@ export default class AccountInfo extends React.Component {
                     <Form  
                     ref={c => this._form = c} 
                     type={User} 
+    
                     />
                     <Button
                     title="Next"

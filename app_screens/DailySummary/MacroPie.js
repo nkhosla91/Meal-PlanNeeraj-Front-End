@@ -31,9 +31,9 @@ class MacroPie extends React.Component {
                         })
       // console.log(allMeals)
       dailyMeals.forEach(meal => {
-        carbs = carbs + meal["food"]["carbs"]
-        fat = fat + meal["food"]["fat"]
-        protein = protein + meal["food"]["protein"]
+        carbs = carbs + meal["food"]["carbs"]*4
+        fat = fat + meal["food"]["fat"]*9
+        protein = protein + meal["food"]["protein"]*4
       })
       // console.log(fat, carbs, protein)
       
@@ -107,4 +107,3 @@ export default connect(mapStateToProps)(MacroPie)
        sessionFoods: state.sessionFoods,
     }
   }
-
