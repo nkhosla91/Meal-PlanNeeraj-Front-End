@@ -54,9 +54,10 @@ class CalorieCalc extends React.Component {
             <View>
               <View style={styles.container}>
                   <Text style={styles.text}>{this.props.user["calories"]}     -    {this.getCalories()}     =   {this.props.user["calories"] - this.getCalories()} </Text>
+                  <Text> </Text>
                   <Text style={styles.text}>TDEE  -  Daily Cals  =  Rem. Cals</Text>
                   <Text> </Text>
-                  <Progress.Bar progress={this.getCalories()/this.props.user["calories"]} width={300} />
+                  <Progress.Bar progress={this.getCalories()/this.props.user["calories"]} width={340} />
               </View>
               <View></View>
                   {/* <ProgressChart
@@ -125,12 +126,13 @@ const styles = StyleSheet.create({
         elevation: 1,
         marginLeft: 5,
         marginRight: 5,
-        marginBottom: 10,
+        marginBottom: 30,
         textAlign: 'center'
       },
       text: { 
           textAlign: 'center',
           fontWeight: 'bold',
-
+          fontFamily: 'Cochin',
+          fontSize: 18
         }
   });

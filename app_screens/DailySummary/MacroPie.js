@@ -6,32 +6,33 @@ import {connect} from 'react-redux'
 // import { VictoryPie } from 'victory-native';
 
 
+
 class MacroPie extends React.Component {
 
 
 
   pieData = ()=> {
-
-    const date = new Date().getDate(); //Current Date
-    const month = new Date().getMonth() + 1; //Current Month
-    const year = new Date().getFullYear(); //Current Year
-    const hours = new Date().getHours(); //Current Hours
-
-    function pad2(date) {
-      return (date < 10 ? '0' : '') + date
-  }
-
-    newDay=pad2(date)
-
-    const fullDate = year + '-' + month + '-' + newDay
-    
-    let carbs = 0
-    let fat = 0
-    let protein = 0
     let data = []
-
-
     if (this.props.userFoods) {
+
+      const date = new Date().getDate(); //Current Date
+      const month = new Date().getMonth() + 1; //Current Month
+      const year = new Date().getFullYear(); //Current Year
+      const hours = new Date().getHours(); //Current Hours
+
+      function pad2(date) {
+        return (date < 10 ? '0' : '') + date
+       }
+
+      newDay=pad2(date)
+
+      const fullDate = year + '-' + month + '-' + newDay
+      
+      let carbs = 0
+      let fat = 0
+      let protein = 0
+      
+
      
       const allMeals = [...this.props.userFoods, ...this.props.sessionFoods]
       let dailyMeals = allMeals.filter(food => {
@@ -50,21 +51,21 @@ class MacroPie extends React.Component {
         {
           name: 'Carbs',
           macro: carbs,
-          color: 'blue',
+          color: '#D81159',
           legendFontColor: '#7F7F7F',
           legendFontSize: 15,
         },
         {
           name: 'Fat',
           macro: fat,
-          color: '#F00',
+          color: '#8DDBE0',
           legendFontColor: '#7F7F7F',
           legendFontSize: 15,
         },
         {
           name: 'Protein',
           macro: protein,
-          color: 'yellow',
+          color: '#4B5043',
           legendFontColor: '#7F7F7F',
           legendFontSize: 15,
         },
@@ -83,17 +84,17 @@ class MacroPie extends React.Component {
                     data={this.pieData()}
                                     width={Dimensions.get('window').width - 16}
                     height={220}
-                    chartConfig={{
-                      backgroundColor: '#1cc910',
-                      backgroundGradientFrom: '#eff3ff',
-                      backgroundGradientTo: '#efefef',
-                      decimalPlaces: 2,
-                      color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
+                    chartConfig={  {
+                      backgroundColor: '#000000',
+                      backgroundGradientFrom: '#1E2923',
+                      backgroundGradientTo: '#08130D',
+                      color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
                       style: {
-                        borderRadius: 16,
-                      },
+                        borderRadius: 16
+                      }
                     }}
                     style={{
+                      marginLeft: 20,
                       marginVertical: 8,
                       borderRadius: 16,
                     }}

@@ -74,7 +74,7 @@ class Signup extends React.Component {
 
   handleCreateUser = () => {
     // console.log(this.state, "prefetch")
-      return fetch('http://192.168.0.70:3000/api/v1/users', {
+      return fetch('http://10.9.111.89:3000/api/v1/users', {
        method: 'POST',
        headers: {
          'Accept': 'application/json',
