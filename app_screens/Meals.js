@@ -45,13 +45,14 @@ class Meals extends React.Component {
     render () {
         // console.log(this.props.sessionFoods, "?")
     return (
-
+<KeyboardAwareScrollView contentContainerStyle={{flexGrow: 1}}>
         <View style={styles.container}>
         <Text style={styles.paragraph}> 
             </Text>
             <Text style={styles.paragraph}> 
                 My Meals
             </Text>
+              <Slider style={{marginTop: 2, marginBottom: 10}}/>
 
             <Text style={styles.mealTitle}>Breakfast</Text>
               <View style={styles.meal}>
@@ -70,9 +71,8 @@ class Meals extends React.Component {
               <Text style={styles.paragraph}> 
              </Text>
 
-              <Slider style={{marginTop: 2}}/>
         </View>
-  
+        </KeyboardAwareScrollView>
     
     )
   }

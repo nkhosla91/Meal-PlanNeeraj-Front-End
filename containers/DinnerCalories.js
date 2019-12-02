@@ -36,7 +36,7 @@ class DinnerCalories extends React.Component {
       let calories = null
      
       let dailyMeals = allMeals.filter(food => {
-                            if(food["mealtime"]==="Dinner"){
+                            if(food["mealtime"]=== "dinner"){
                                 return food["created_at"].slice(0,10) === fullDate
                             }
                             })

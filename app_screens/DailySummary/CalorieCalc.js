@@ -56,7 +56,7 @@ class CalorieCalc extends React.Component {
                   <Text style={styles.text}>{this.props.user["calories"]}     -    {this.getCalories()}     =   {this.props.user["calories"] - this.getCalories()} </Text>
                   <Text style={styles.text}>TDEE  -  Daily Cals  =  Rem. Cals</Text>
                   <Text> </Text>
-                  <Progress.Bar progress={this.getCalories()/this.props.user["calories"]} width={340} />
+                  <Progress.Bar progress={this.getCalories()/this.props.user["calories"]} width={300} />
               </View>
               <View></View>
                   {/* <ProgressChart

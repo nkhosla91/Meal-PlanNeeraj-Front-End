@@ -11,9 +11,9 @@ class Slider extends React.Component {
     state = {
         images: [
           'https://i0.wp.com/lisamdecker.com/wp-content/uploads/2017/03/mealplanning.jpeg?fit=320%2C213&ssl=1',
-          'https://source.unsplash.com/1024x768/?water',
-          'https://source.unsplash.com/1024x768/?girl',
-          'https://source.unsplash.com/1024x768/?tree'
+          'https://www.leisurecare.com/resources/wp-content/uploads/2018/12/healthy-eating-during-holidays.png',
+          'https://simpleandsane.com/wp-content/uploads/2018/07/Keto-Diet-for-Beginners-blog-graphic.jpg',
+          'https://www.developgoodhabits.com/wp-content/uploads/2019/01/best-workout-apps.jpg'
         ]
       }
 
