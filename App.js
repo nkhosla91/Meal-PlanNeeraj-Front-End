@@ -11,7 +11,7 @@ const initialState = {
   allFood: [],
   userfoods: [],
   sessionFoods: [],
-  loggedIn: false,
+  loggedIn: true,
   selectFood: {},
 }
 
@@ -29,11 +29,12 @@ const reducer = (prevState = initialState, action) => {
     case 'SELECT_FOOD':
       return {...prevState, selectFood: action.payload}
     case 'FETCH_USER_FOODS':
-
           return {...prevState, userFoods: action.payload}
     case 'ADD_SESSION_FOODS':
       // console.log(action.payload, "payload")
           return {...prevState, sessionFoods: [...prevState.sessionFoods, action.payload]}
+    case 'REPLACE_SESSION_FOODS':
+          return {...prevState, sessionFoods: action.payload}
     // case 'SELECTED_MEAL':
     //     return {selectedMeal: null}
     // case 'SET_USER':
@@ -43,7 +44,6 @@ const reducer = (prevState = initialState, action) => {
     // case 'SET_MEALS':
     //   return {foods: [] }
     default:
-      // console.log("running")
      return prevState 
   }
 }

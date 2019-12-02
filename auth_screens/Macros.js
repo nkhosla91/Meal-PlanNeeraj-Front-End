@@ -40,7 +40,7 @@ export default class AccountInfo extends React.Component {
   }
   handleCheck = () =>{
     if(this.props.screenProps.calories) {
-      console.log("CHECKING")
+      // console.log("CHECKING")
       this.setState({checked: true})
     }
   }
@@ -50,7 +50,7 @@ export default class AccountInfo extends React.Component {
     
       if (!this.state.checked){
         let value = this._form.getValue()
-        console.log(value)
+        // console.log(value)
         if (!value){
           return alert("Please make a selection or choose custom.")
         } else if(value["macros"] === "Recommended" ){

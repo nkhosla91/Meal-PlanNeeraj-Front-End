@@ -34,7 +34,7 @@ class CalorieLineChart extends React.Component {
                     var str = tempDate.getFullYear() + "-" + pad(tempDate.getMonth()+1) + "-" + pad(tempDate.getDate());
                     dates.push(str);  
                 }
-                    console.log(dates);
+                    // console.log(dates);
 
                 const allMeals = [...this.props.userFoods, ...this.props.sessionFoods]
 

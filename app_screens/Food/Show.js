@@ -59,6 +59,8 @@ class Show extends React.Component {
       "mealtime": value["mealtime"]
     }
 
+    // console.log(fullDate)
+
     const userfood = {
       user_id: this.props.user["id"],
       food_id: this.props.selectFood["id"],
@@ -74,6 +76,9 @@ class Show extends React.Component {
       },
       body: JSON.stringify(userfood),
     }) 
+    .then(response => response.json())
+    .then(response => console.log(response["userfood"], "hello"))
+    .then(sessionFood["id"])
     .then(this.props.addSessionFoods(sessionFood))
     .then(this.props.navigation.navigate('Meals'))
   }

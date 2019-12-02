@@ -16,3 +16,8 @@ export function selectFood(food) {
     // console.log("action")
     return {type: "ADD_SESSION_FOODS", payload: food}
   }
+
+  export function replaceSessionFoods(food) {
+    // console.log("action")
+    return {type: "REPLACE_SESSION_FOODS", payload: food}
+  }
