@@ -38,7 +38,7 @@ class CalorieLineChart extends React.Component {
 
                 const allMeals = [...this.props.userFoods, ...this.props.sessionFoods]
 
-                        for (i = 0; i < 7; i++){
+                        for (i = 1; i < 7; i++){
                             let calories = 0
                             let dailyMeals = allMeals.filter(food => {
                                     return food["created_at"].slice(0,10) === dates[i]
@@ -62,22 +62,22 @@ class CalorieLineChart extends React.Component {
             width={Dimensions.get('window').width - 16} // from react-native
             height={220}
             chartConfig={  {
-                backgroundColor: '#C5FFCA',
-                backgroundGradientFrom: '#1E2923',
-                backgroundGradientTo: '#08130D',
-                color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+                // backgroundColor: '#C5FFCA',
+                backgroundGradientFrom: '#e5edad',
+                backgroundGradientTo: '#dff071',
+                color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
                 style: {
                   borderRadius: 16
                 }
               }}
               style={{
-                marginRight: 10,
+                marginRight: 100,
                 marginLeft: 8,
                 marginVertical: 8,
                 borderRadius: 16,
-                backgroundColor: 'transparent'
+                // backgroundColor: 'transparent'
               }}
-            backgroundColor="transparent"
+            // backgroundColor="transparent"
             />
             // <Text>hi</Text>
         )
