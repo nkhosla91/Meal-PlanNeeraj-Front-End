@@ -18,16 +18,20 @@ class MyInfo extends React.Component {
             <Text style={styles.title}> 
                     Daily Summary
                 </Text>
-                
-              <MacroPie />
               <CalorieCalc />
+                
+              <Text style={styles.paragraph}> 
+                    Macronutrients
+                </Text>
+              <MacroPie />
             <Text style={styles.paragraph}> 
                    Weekly Caloric Intake
                 </Text>
                 <Text style={styles.subText}> 
                     Click any data point for more information!
                 </Text>
-      <CalorieLineChart style={{padding: 0}}/>
+      <CalorieLineChart style={{justifyContent: 'center'}}/>
+            <Text style={{padding: 20}}></Text>
             </View>
 
         </KeyboardAwareScrollView>
@@ -53,25 +57,28 @@ const styles = StyleSheet.create({
       justifyContent: 'center'
     },
     title: {
-      marginTop: 45,
+      marginTop: 75,
       marginBottom: 18,
       textAlign: 'center',
       fontSize: 40,
       fontWeight: 'bold',
-      fontFamily: 'Cochin'
+      fontFamily: 'Cochin',
+      justifyContent: 'center'
     },
     paragraph: {
       marginBottom: 18,
       textAlign: 'center',
       fontSize: 40,
       fontWeight: 'bold',
-      fontFamily: 'Cochin'
+      fontFamily: 'Cochin',
+      justifyContent: 'center'
     },  
     subText: {
       marginBottom: 10,
       fontSize: 18,
       textAlign: 'center',
       fontWeight: 'bold',
-      fontFamily: 'Cochin'
+      fontFamily: 'Cochin',
+      justifyContent: 'center'
     }
   })

@@ -79,16 +79,16 @@ class CalorieLineChart extends React.Component {
             height={220}
             chartConfig={  {
                 // backgroundColor: '#C5FFCA',
-                backgroundGradientFrom: '#e5edad',
-                backgroundGradientTo: '#dff071',
+                backgroundGradientFrom: '#00e0ff',
+                backgroundGradientTo: '#6481a1',
                 color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
                 style: {
                   borderRadius: 16
                 }
               }}
               style={{
-                marginRight: 100,
-                marginLeft: 8,
+                // marginRight: 100,
+                // marginLeft: 8,
                 marginVertical: 8,
                 borderRadius: 16,
                 // backgroundColor: 'transparent'

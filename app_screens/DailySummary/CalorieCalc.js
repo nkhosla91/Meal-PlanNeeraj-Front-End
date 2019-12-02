@@ -1,11 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, FlatList, List } from 'react-native'
+import { StyleSheet, Text, View, Button, FlatList, Dimensions} from 'react-native'
 import {connect} from 'react-redux'
 import * as Progress from 'react-native-progress';
 import { PieChart, ProgressChart, ProgressPie } from "react-native-chart-kit"
 import ProgressCircle from 'react-native-progress-circle'
- 
-
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
 
 
 // const ds = new FlatList.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -52,13 +51,35 @@ class CalorieCalc extends React.Component {
     //   console.log(this.state)
         return (
             <View>
+
+              <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', marginBottom: 20}}>
+                  <AnimatedCircularProgress
+                  style={{justifyContent: 'center'}}
+          
+                    rotation={0}
+                    size={200}
+                    duration={1200}
+                    width={20}
+                    fill={this.getCalories()/this.props.user["calories"]*100}
+                    tintColor="#00e0ff"
+                    backgroundColor="#3d5875">
+                    {
+                      (fill) => (
+                        <Text style={styles.percent}>
+                        {Math.floor(fill)} %
+                        </Text>
+                      )
+                    }
+                  </AnimatedCircularProgress>
+                </View>
               <View style={styles.container}>
                   <Text style={styles.text}>{this.props.user["calories"]}     -    {this.getCalories()}     =   {this.props.user["calories"] - this.getCalories()} </Text>
                   <Text style={styles.text}>TDEE  -  Daily Cals  =  Rem. Cals</Text>
   
               </View>
 
-                  <Progress.Circle progress={this.getCalories()/this.props.user["calories"]} width={340} />
+                  {/* <Progress.Circle progress={this.getCalories()/this.props.user["calories"]} width={340} /> */}
+
               <View></View>
                   {/* <ProgressChart
                         data={[.4]}
@@ -126,7 +147,7 @@ const styles = StyleSheet.create({
         elevation: 1,
         marginLeft: 5,
         marginRight: 5,
-        marginBottom: 30,
+        marginBottom: 20,
         textAlign: 'center',
         height: 55,
         justifyContent: 'center'
@@ -136,5 +157,11 @@ const styles = StyleSheet.create({
           fontWeight: 'bold',
           fontFamily: 'Cochin',
           fontSize: 18
+        },
+        percent: { 
+          textAlign: 'center',
+          fontWeight: 'bold',
+          fontFamily: 'Cochin',
+          fontSize: 40
         }
   });
