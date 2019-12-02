@@ -15,13 +15,17 @@ class MyInfo extends React.Component {
     return (
         <KeyboardAwareScrollView  contentContainerStyle={{flexGrow: 1}}>
             <View style={styles.container}>
-            <Text style={styles.paragraph}> 
+            <Text style={styles.title}> 
                     Daily Summary
                 </Text>
+                
               <MacroPie />
               <CalorieCalc />
             <Text style={styles.paragraph}> 
                    Weekly Caloric Intake
+                </Text>
+                <Text style={styles.subText}> 
+                    Click any data point for more information!
                 </Text>
       <CalorieLineChart style={{padding: 0}}/>
             </View>
@@ -48,12 +52,26 @@ const styles = StyleSheet.create({
       // padding: 20,
       justifyContent: 'center'
     },
+    title: {
+      marginTop: 45,
+      marginBottom: 18,
+      textAlign: 'center',
+      fontSize: 40,
+      fontWeight: 'bold',
+      fontFamily: 'Cochin'
+    },
     paragraph: {
       marginBottom: 18,
-      fontSize: 18,
       textAlign: 'center',
       fontSize: 40,
       fontWeight: 'bold',
       fontFamily: 'Cochin'
     },  
+    subText: {
+      marginBottom: 10,
+      fontSize: 18,
+      textAlign: 'center',
+      fontWeight: 'bold',
+      fontFamily: 'Cochin'
+    }
   })

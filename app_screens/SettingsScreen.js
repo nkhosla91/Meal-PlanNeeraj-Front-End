@@ -1,26 +1,19 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from 'react-navigation-stack'
+import  { createAppContainer  } from 'react-navigation'
+import SettingsHome from './SettingsScreens/SettingsHome'
+import EditUser from './SettingsScreens/EditUser'
 
-import {Icon, Button, Container, Header, Content, Left } from 'native-base'
 
-export default class SettingsScreen extends React.Component {
-    render () {
-        return (
-          <Container>
-                <Header>
-                  <Left>
-                      <Icon name='ios-menu' onPress={()=>
-                      this.props.navigation.navigate('DrawerOpen')} />
-                  </Left>
-              </Header>
-                <Content contentContainerStyle={{
-                    flex: 1,
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                }}>
-                  <Text>Settings</Text>
-                  </Content>
-          </Container>
-        )
-    }
-} //end of SettingsScreen Class
+
+export default createAppContainer (
+  createStackNavigator(
+      {
+        SettingsHome: SettingsHome,
+        EditUser: EditUser
+      },
+      {
+        initialRouteName: 'SettingsHome',
+        headerMode: 'none',
+      }
+    )
+)
