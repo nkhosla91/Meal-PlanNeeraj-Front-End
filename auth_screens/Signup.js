@@ -45,7 +45,7 @@ class Signup extends React.Component {
   }
 
   handleState = (infoHash) => {
-    // console.log(this.state)
+    console.log(this.state.activityLevel)
     this.setState({...infoHash})
     // console.log(this.state.email, this.state.age)
     if (!this.state.email){
@@ -73,14 +73,17 @@ class Signup extends React.Component {
   }
 
   handleCreateUser = () => {
-    // console.log(this.state, "prefetch")
+    let createUserArray = this.state
+    createUserArray["activityLevel"] = parseFloat(this.state.activityLevel)
+    console.log(createUserArray)
+   
       return fetch('http://10.9.111.89:3000/api/v1/users', {
        method: 'POST',
        headers: {
          'Accept': 'application/json',
          'Content-Type': 'application/json',
        },
-       body: JSON.stringify(this.state),
+       body: JSON.stringify(createUserArray),
      }) 
      .then(this.props.navigation.navigate('WelcomeScreen'))
   }

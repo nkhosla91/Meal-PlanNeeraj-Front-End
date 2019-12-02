@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, FlatList, List } from 'react-native'
 import {connect} from 'react-redux'
 import * as Progress from 'react-native-progress';
-import { PieChart, ProgressChart } from "react-native-chart-kit"
+import { PieChart, ProgressChart, ProgressPie } from "react-native-chart-kit"
 import ProgressCircle from 'react-native-progress-circle'
  
 
@@ -54,11 +54,11 @@ class CalorieCalc extends React.Component {
             <View>
               <View style={styles.container}>
                   <Text style={styles.text}>{this.props.user["calories"]}     -    {this.getCalories()}     =   {this.props.user["calories"] - this.getCalories()} </Text>
-                  <Text> </Text>
                   <Text style={styles.text}>TDEE  -  Daily Cals  =  Rem. Cals</Text>
-                  <Text> </Text>
-                  <Progress.Bar progress={this.getCalories()/this.props.user["calories"]} width={340} />
+  
               </View>
+
+                  <Progress.Circle progress={this.getCalories()/this.props.user["calories"]} width={340} />
               <View></View>
                   {/* <ProgressChart
                         data={[.4]}
@@ -127,7 +127,9 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         marginRight: 5,
         marginBottom: 30,
-        textAlign: 'center'
+        textAlign: 'center',
+        height: 55,
+        justifyContent: 'center'
       },
       text: { 
           textAlign: 'center',

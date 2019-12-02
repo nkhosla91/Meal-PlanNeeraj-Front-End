@@ -24,9 +24,9 @@ export default class AccountInfo extends React.Component {
 
   state = {
     checked: false,
-    customCarbs: "0",
-    customFat: "0",
-    customProtien: "0"
+    customCarbs: null,
+    customFat: null,
+    customProtein: null
   }
 
   handleCustom = (macro, percent) => {
@@ -92,15 +92,17 @@ export default class AccountInfo extends React.Component {
       } else if(this.state.checked === true){
                  
 
-                  if (parseInt(this.state.customCarbs) + parseInt(this.state.customFat) + parseInt(this.state.customProtien)!= 100) {
+                  if (parseInt(this.state.customCarbs) + parseInt(this.state.customFat) + parseInt(this.state.customProtein) != 100) {
+                   
                    return alert("Please have your percentages equal 100")
-                  } else if (parseInt(this.state.customCarbs) + parseInt(this.state.customFat) + parseInt(this.state.customProtien)=== 100) {
-                    macros["carbPercent"] = this.state.customCarbs
-                    macros["fatPercent"] = this.state.customFat
-                    macros["proteinPercent"] = this.state.customProtien
-                    macros["carbCalories"] = this.state.customCarbs * this.props.screenProps.calories/100
-                    macros["fatCalories"] = this.state.customFat * this.props.screenProps.calories/100
-                    macros["proteinCalories"] = this.state.customProtien * this.props.screenProps.calories/100
+                  } else if (parseInt(this.state.customCarbs) + parseInt(this.state.customFat) + parseInt(this.state.customProtein)=== 100) {
+                 
+                    macros["carbPercent"] = parseInt(this.state.customCarbs)
+                    macros["fatPercent"] = parseInt(this.state.customFat)
+                    macros["proteinPercent"] = parseInt(this.state.customProtein)
+                    macros["carbCalories"] = parseInt(this.state.customCarbs) * this.props.screenProps.calories/100
+                    macros["fatCalories"] = parseInt(this.state.customFat) * this.props.screenProps.calories/100
+                    macros["proteinCalories"] = parseInt(this.state.customProtein) * this.props.screenProps.calories/100
                     
                     this.props.screenProps.handleState(macros)
                   }

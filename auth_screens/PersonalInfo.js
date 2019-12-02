@@ -33,6 +33,7 @@ export default class AccountInfo extends React.Component {
 
     handleSubmit = () => {
         const value = this._form.getValue()
+        console.log(value, "this.sub")
         this.props.screenProps.handleState(value)
     }
     

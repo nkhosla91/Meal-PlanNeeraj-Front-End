@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 
 
 const initialState = {
-  user: {id: 8, username: "nk216", email: "n.khosla91@gmail.com", password: "1", gender: "M", age: 28, height: 72, weight: 177, activityLevel: 1, BMR: 1893, calories: 2604, carbPercent: 50, fatPercent: 30, proteinPercent: 20, carbCalories: 1302, fatCalories: 781, proteinCalories: 520},
+  user: {id: 8, username: "nk216", email: "n.khosla91@gmail.com", password: "1", gender: "M", age: 28, height: 72, weight: 177, activityLevel: 1.55, BMR: 1893, calories: 2604, carbPercent: 50, fatPercent: 30, proteinPercent: 20, carbCalories: 1302, fatCalories: 781, proteinCalories: 520},
   // meals: [ {id: 1, user_id: 8, name: "Meal One", created_at: "2019-11-23 17:07:38", updated_at: "2019-11-23 17:07:38"}, {id: 2, user_id: 8, name: "Meal Two", created_at: "2019-11-23 17:07:52", updated_at: "2019-11-23 17:07:52"} ],
   // breakfastMeals:  [ {id: 1, name: "Kid's Minestrone Soup", carbs: 8, fat: 1, protein: 2, calories: 50}, { id: 2, name: "Kid's Sourdough Bread", carbs: 30, fat: 1, protein: 6, calories: 150}, {  id: 3, name: "Kid's Spaghetti with Tomato Sauce", carbs: 52, fat: 2, protein: 10, calories: 270} ],
   allFood: [],
