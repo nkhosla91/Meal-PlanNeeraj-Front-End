@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
       },
       text: { 
           textAlign: 'center',
-          fontSize: 10
-
+          fontSize: 10,
+          fontWeight: 'bold'
         }
   });

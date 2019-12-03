@@ -61,7 +61,7 @@ class MealContainer extends React.Component {
                 renderItem={({item}) =>(
              
                     <View style={styles.container}>
-                        <Text key={item["created_at"]} >{item["food"]["name"]}</Text>
+                        <Text style={{fontWeight: 'bold'}} key={item["created_at"]} >{item["food"]["name"]}</Text>
                         <TouchableOpacity onPress={this.handleRemove(item["id"])}>
                           <Text style={styles.button}>Remove</Text>
                         </TouchableOpacity>

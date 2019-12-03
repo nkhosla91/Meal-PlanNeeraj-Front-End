@@ -15,6 +15,7 @@ class Login extends React.Component {
   render(){
     return (
       <View style={styles.container}>
+        <Text style={styles.paragraph}>Please enter your username and password</Text>
            <Form  
                     ref={c => this._form = c} 
                     type={User} 
@@ -44,7 +45,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#C5FFCA',
-    alignItems: 'center',
+    padding: 20,
     justifyContent: 'center'
-  }
+  },
+  paragraph: {
+    marginBottom: 40,
+    textAlign: 'center',
+    fontSize: 30,
+    fontWeight: 'bold',
+    fontFamily: 'Cochin'
+  },
 })
