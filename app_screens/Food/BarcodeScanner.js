@@ -15,6 +15,7 @@ class BarcodeScanner extends React.Component {
   };
 
     handleBarCodeScanned = ({ type, data }) => {
+      console.log(data)
       this.setState({ scanned: true });
       if (type === "org.iso.QRCode"){
        return alert('Sorry but our app cannot handle QR codes at this time!')
@@ -31,12 +32,13 @@ class BarcodeScanner extends React.Component {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': 'Token token=02013c85e4cde2bcc3c8277ec106d095'
+          // 'Authorization': 'Token token=02013c85e4cde2bcc3c8277ec106d095'
         
         },
         
       }) 
       .then(response => response.json())
+      .then(response => console.log(response))
       .then(data => this.props.scanFood(data["items"][0]))
       // .then(data => this.props.scanImage(data["items"][0]["images"]))
       .then(this.props.navigation.navigate('Create Food'))

@@ -4,6 +4,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import t from 'tcomb-form-native'
 import {connect} from 'react-redux'
 import { addSessionFoods }from '../../actions'
+import Show from './Show'
 
 
 const Form = t.form.Form
@@ -19,8 +20,7 @@ const AddFood = t.struct({
   Carbs: t.Number,
   Fat: t.Number,
   Protein: t.Number,
-  'Add to Meal?': t.Boolean,
-  mealtime: t.maybe(Mealtime),
+  mealtime: Mealtime,
 })
 
 
@@ -31,13 +31,31 @@ class CreateFood extends React.Component {
 
   handleSubmit = () => {
     const value = this._form.getValue()
-    console.log(value)
+    // console.log(value)
 
-    if(value["Add to Meal?"] && !value["mealtime"]){
-      return alert("If you would like to add this food to a meal please select a Mealtime")
+
+
+    let newFoodArray ={
+      "name": this.props.scannedFood["title"],
+       "carbs": value["Carbs"],
+       "fat": value["Fat"],
+       "protein": value["Protein"],
+       "calories": value["Calories"],
     }
 
-    
+ 
+
+    fetch('http://10.9.109.135:3000/api/v1/foods', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newFoodArray),
+    }) 
+    .then(response => response.json())
+    .then(console.log(response))
+
 
   //   const value = this._form.getValue()
   //   const date = new Date().getDate(); //Current Date
