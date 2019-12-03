@@ -1,6 +1,6 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native';
-import {Icon, Button, Container, Header, Content, TouchableOpacity} from 'native-base'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import {Icon, Button, Container, Header, Content} from 'native-base'
 import {connect} from 'react-redux'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { Searchbar } from 'react-native-paper';
@@ -51,6 +51,10 @@ class Search extends React.Component {
         this.props.navigation.navigate('Show')
     }
 
+    handleScanNav = () => {
+      this.props.navigation.navigate('Scan')
+    }
+
 
 
     render () {
@@ -59,13 +63,23 @@ class Search extends React.Component {
           <KeyboardAwareScrollView  contentContainerStyle={{flexGrow: 1}}>
           <View style={styles.container}>
             <Text style={styles.title}>Search Foods</Text>
-        
-                                <Searchbar
-                                    inputStyle={{backgroundColor: 'white'}}
-                                    containerStyle={{backgroundColor: 'white', borderWidth: 1, borderRadius: 5, padding: 20}}
-                                    placeholder={'Search food here'}
-                                    onChangeText={this.updateSearch}
-                                    />  
+
+            <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+              <Text style={styles.navText}>Cant find your food?</Text>
+            </View>
+
+            <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+              <Text style={styles.navText}>Scan your barcode</Text>
+              <TouchableOpacity onPress={this.handleScanNav}><Text style={styles.linkText}> here!</Text></TouchableOpacity>
+            </View>
+
+            <View style={{marginTop: 12}}>
+                  <Searchbar
+                      inputStyle={{backgroundColor: 'white'}}
+                      containerStyle={{backgroundColor: 'white', borderWidth: 1, borderRadius: 5, padding: 20}}
+                      placeholder={'Search food here'}
+                      onChangeText={this.updateSearch}
+                      />  
             
                 {this.props.allFood.filter(foods =>{
                     // console.log(foods["name"], "hi")
@@ -73,10 +87,11 @@ class Search extends React.Component {
                             // console.log(food["id"])
                             return (      
                             <Button onPress={this.handleFoodPress.bind(this, food)} style={styles.row} key={food["id"]}><Text style={styles.text}>{food["name"]}</Text></Button>   
-                           
+                          
                         )
                         })
                       }
+                </View>
               
           </View>
           </KeyboardAwareScrollView>
@@ -117,7 +132,7 @@ export default connect(mapStateToProps, {selectFood})(Search)
         justifyContent: 'flex-start'
       },
       title: {
-        marginBottom: 24,
+        marginBottom: 12,
         textAlign: 'center',
         fontSize: 40,
         fontWeight: 'bold',
@@ -129,5 +144,20 @@ export default connect(mapStateToProps, {selectFood})(Search)
         fontFamily: 'Cochin',
         justifyContent: 'center',
         textAlign: 'center'
+      },
+      navText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        fontFamily: 'Cochin',
+        justifyContent: 'center',
+        textAlign: 'center'
+      },
+      linkText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        fontFamily: 'Cochin',
+        justifyContent: 'center',
+        textAlign: 'center',
+        color: 'blue'
       }
   })

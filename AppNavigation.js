@@ -15,11 +15,11 @@ export default createAppContainer (
     "My Info": {
       screen: MyInfo
     },
-    Scan: {
-      screen: ScanNavigator
-    },
     Food: {
       screen: FoodNavigator
+    },
+    Scan: {
+      screen: ScanNavigator
     },
     Settings: {
       screen: SettingsScreen

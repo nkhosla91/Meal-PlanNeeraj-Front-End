@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import MealContainer from '../containers/MealContainer'
 import {connect} from 'react-redux'
@@ -41,6 +41,10 @@ class Meals extends React.Component {
       })
     }
   }
+
+  handleAddFood = () => {
+    this.props.navigation.navigate('Food')
+  }
   
     render () {
         // console.log(this.props.sessionFoods, "?")
@@ -52,7 +56,14 @@ class Meals extends React.Component {
             <Text style={styles.paragraph}> 
                 My Meals
             </Text>
+
               <Slider style={{marginTop: 2, marginBottom: 10}}/>
+
+            <TouchableOpacity style={styles.button} onPress={this.handleAddFood}>
+              <Text style={styles.buttonText}>Add Food</Text>
+            </TouchableOpacity>
+
+
 
             <Text style={styles.mealTitle}>Breakfast</Text>
               <View style={styles.meal}>
@@ -125,6 +136,25 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         marginRight: 5,
         marginBottom: 10
-      }
+      },
+      button: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: 14
+      },
+      buttonText: {
+        textAlign: 'center',
+        fontSize: 24,
+        fontWeight: 'bold',
+        fontFamily: 'Cochin',
+        shadowColor: 'rgba(0,0,0, .4)', // IOS
+        shadowOffset: { height: 1, width: 1 }, // IOS
+        shadowOpacity: 1, // IOS
+        shadowRadius: 1, //IOS
+        backgroundColor: '#B5C0AE',
+        height: 26,
+        width: 100,
+        textAlignVertical: 'center'
+      },
 
   })
