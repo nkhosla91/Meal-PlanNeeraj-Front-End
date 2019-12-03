@@ -21,3 +21,8 @@ export function selectFood(food) {
     // console.log("action")
     return {type: "REPLACE_SESSION_FOODS", payload: food}
   }
+
+  export function scanFood(food) {
+    return {type: "SCAN_FOOD", payload: food}
+  }
+

@@ -6,6 +6,7 @@ import t from 'tcomb-form-native'
 import {connect} from 'react-redux'
 import { addSessionFoods }from '../../actions'
 import Slider from '/Users/flatironschool/Documents/FINAL PROJECT - MOD 5/Meal-Planneeraj-Front-End/App_screens/Slider.js'
+import { NutritionLabel }from 'react-fda-nutrition-facts'
 
 const Form = t.form.Form
 
@@ -68,7 +69,7 @@ class Show extends React.Component {
     }
     // console.log(userfood, "userfood")
 
-    return fetch('http://10.9.111.89:3000/api/v1/userfoods', {
+    return fetch('http://10.9.109.135:3000/api/v1/userfoods', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -77,7 +78,7 @@ class Show extends React.Component {
       body: JSON.stringify(userfood),
     }) 
     .then(response => response.json())
-    .then(response => console.log(response["userfood"], "hello"))
+    // .then(response => console.log(response["userfood"], "hello"))
     .then(sessionFood["id"])
     .then(this.props.addSessionFoods(sessionFood))
     .then(this.props.navigation.navigate('Meals'))
@@ -117,6 +118,7 @@ class Show extends React.Component {
               <Text>Protein: {this.props.selectFood["protein"]} g</Text>
               </View>    
           <Button  style={{padding:20}} onPress={this.handleSubmit} title="Add Food!"/>
+      
         </View>
 
     )

@@ -4,10 +4,17 @@ import MyInfo from './App_screens/MyInfo'
 import SettingsScreen from './App_screens/SettingsScreen'
 import FoodNavigator from './App_screens/FoodNavigator'
 import Meals from './App_screens/Meals'
+import ScanNavigator from './App_screens/ScanNavigator'
  
 
 export default createAppContainer (
   createDrawerNavigator({
+    Scan: {
+      screen: ScanNavigator
+    },
+    Food: {
+      screen: FoodNavigator
+    },
     Meals: {
       screen: Meals
     },
@@ -16,9 +23,6 @@ export default createAppContainer (
     },
     Settings: {
       screen: SettingsScreen
-    },
-    Food: {
-      screen: FoodNavigator
     },
   })
 )

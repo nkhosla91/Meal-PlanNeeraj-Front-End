@@ -13,6 +13,8 @@ const initialState = {
   sessionFoods: [],
   loggedIn: true,
   selectFood: {},
+  scannedFood: {},
+  sacnnedImage: null
 }
 
 
@@ -35,6 +37,10 @@ const reducer = (prevState = initialState, action) => {
           return {...prevState, sessionFoods: [...prevState.sessionFoods, action.payload]}
     case 'REPLACE_SESSION_FOODS':
           return {...prevState, sessionFoods: action.payload}
+    case 'SCAN_FOOD':
+      // console.log(action.payload)
+      return {...prevState, scannedFood: action.payload}
+
     // case 'SELECTED_MEAL':
     //     return {selectedMeal: null}
     // case 'SET_USER':

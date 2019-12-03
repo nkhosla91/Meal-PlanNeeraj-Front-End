@@ -2,17 +2,17 @@ import React from 'react';
 // import { Text, View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import Search from './Food/Search'
-import Show from './Food/Show'
 
+import BarcodeScanner from './Food/BarcodeScanner'
+import CreateFood from './Food/CreateFood';
 
 export default createAppContainer (
     createBottomTabNavigator({
-      Search: Search,
-      Show: Show,
+      Scan: BarcodeScanner,
+      "Create Food": CreateFood
     },
     {
-      initialRouteName: 'Search'
+      initialRouteName: 'Scan'
     }
     )
   )
