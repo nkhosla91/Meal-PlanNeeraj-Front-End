@@ -119,7 +119,7 @@ class CreateFood extends React.Component {
 
 
       let newFoodArray = {
-        "name": this.state.limitArray["title"],
+        "name": this.props.scannedFood["title"],
         "carbs": value["Carbs"],
         "fat": value["Fat"],
         "protein": value["Protein"],
@@ -198,11 +198,11 @@ class CreateFood extends React.Component {
       .then(response => postUserFood(response))
 
       }
+      
     }//end of handle submit
-  
     render () {
     
-    if(1===1 ){
+      if(this.props.scannedFood["title"]){
     return (      
       <KeyboardAwareScrollView  contentContainerStyle={{flexGrow: 1}}>
          <View style={styles.container}>
@@ -210,21 +210,21 @@ class CreateFood extends React.Component {
             Scan Succesful!
             </Text>
 
-              {this.state.limitArray["images"][0] ?
+              {this.props.scannedFood["images"][0] ?
                     <View style={{flexDirection: 'row', justifyContent: 'center'}}>
                       <Image
                         style={styles.image}
-                        source={{uri: this.state.limitArray["images"][0]}}
+                        source={{uri: this.props.scannedFood["images"][0]}}
                         />
                       </View>
                     : null
               }
             
-            <Text style={styles.name}>{this.state.limitArray["title"]}</Text>
+            <Text style={styles.name}>{this.props.scannedFood["title"]}</Text>
 
-            {this.state.limitArray["description"] ?
+            {this.props.scannedFood["description"] ?
                     <View style={styles.meal}>  
-                      <Text style={styles.description}>{this.state.limitArray["description"]}</Text>
+                      <Text style={styles.description}>{this.props.scannedFood["description"]}</Text>
                     </View>    
                             : null
               }
