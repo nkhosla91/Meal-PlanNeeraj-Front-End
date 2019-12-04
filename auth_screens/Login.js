@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import {connect} from 'react-redux'
 import t from 'tcomb-form-native'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const Form = t.form.Form
 
@@ -14,6 +15,7 @@ const User = t.struct({
 class Login extends React.Component {
   render(){
     return (
+      <KeyboardAwareScrollView contentContainerStyle={{flexGrow: 1}}>
       <View style={styles.container}>
         <Text style={styles.paragraph}>Please enter your username and password</Text>
            <Form  
@@ -27,6 +29,7 @@ class Login extends React.Component {
             
           />
       </View>
+      </KeyboardAwareScrollView>
     )
   }
 }

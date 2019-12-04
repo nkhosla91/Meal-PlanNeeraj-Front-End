@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         marginRight: 5,
         marginBottom: 20,
-        textAlign: 'center',
+        textAlign: 'left',
         height: 55,
         justifyContent: 'center'
       },

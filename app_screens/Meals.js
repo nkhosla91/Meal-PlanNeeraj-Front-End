@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import MealContainer from '../containers/MealContainer'
 import {connect} from 'react-redux'
@@ -48,7 +48,7 @@ class Meals extends React.Component {
     render () {
         // console.log(this.props.sessionFoods, "?")
     return (
-<KeyboardAwareScrollView contentContainerStyle={{flexGrow: 1}}>
+<ScrollView >
         <View style={styles.container}>
         <Text style={styles.paragraph}> 
             </Text>
@@ -80,9 +80,8 @@ class Meals extends React.Component {
               </View>
               <Text style={styles.paragraph}> 
              </Text>
-
         </View>
-        </KeyboardAwareScrollView>
+        </ScrollView>
     
     )
   }
@@ -139,7 +138,7 @@ const styles = StyleSheet.create({
       button: {
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop: 14
+        marginTop: 14,
       },
       buttonText: {
         textAlign: 'center',
@@ -154,6 +153,6 @@ const styles = StyleSheet.create({
         height: 26,
         width: 100,
         textAlignVertical: 'center'
-      },
+      }
 
   })
