@@ -77,7 +77,7 @@ class Signup extends React.Component {
     createUserArray["activityLevel"] = parseFloat(this.state.activityLevel)
     // console.log(createUserArray)
    
-      return fetch('http://10.9.109.135:3000/api/v1/users', {
+      return fetch('http://10.9.108.72:3000/api/v1/users', {
        method: 'POST',
        headers: {
          'Accept': 'application/json',

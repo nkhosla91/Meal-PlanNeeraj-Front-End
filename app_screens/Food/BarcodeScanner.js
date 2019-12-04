@@ -22,7 +22,7 @@ class BarcodeScanner extends React.Component {
       } 
       
       console.log(type,  data)
-  
+    
       // fetch(`https://api.upcitemdb.com/prod/trial/lookup?upc=${data}`)
       // .then(response => response.json())
       // .then(data => console.log(data["items"]))
@@ -38,10 +38,10 @@ class BarcodeScanner extends React.Component {
         
       }) 
       .then(response => response.json())
-      .then(response => console.log(response))
-      .then(data => this.props.scanFood(data["items"][0]))
+     
+      .then(response=> this.props.scanFood(response["items"][0]))
       // .then(data => this.props.scanImage(data["items"][0]["images"]))
-      .then(this.props.navigation.navigate('Create Food'))
+      // .then(this.props.navigation.navigate('Create Food'))
     };
 
     scanAgain = () => {

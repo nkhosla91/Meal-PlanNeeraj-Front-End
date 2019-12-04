@@ -7,8 +7,7 @@ import Slider from './Slider'
 import BreakfastCalories from '../containers/BreakfastCalories'
 import LunchCalories from '../containers/LunchCalories'
 import DinnerCalories from '../containers/DinnerCalories'
-
-
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 
 class Meals extends React.Component {
@@ -60,7 +59,7 @@ class Meals extends React.Component {
               <Slider style={{marginTop: 2, marginBottom: 10}}/>
 
             <TouchableOpacity style={styles.button} onPress={this.handleAddFood}>
-              <Text style={styles.buttonText}>Add Food</Text>
+              <Icon name="plus-square" color="red" size={70} />
             </TouchableOpacity>
 
 

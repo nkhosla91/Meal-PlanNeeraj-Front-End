@@ -58,7 +58,7 @@ class Search extends React.Component {
 
 
     render () {
-        // console.log(this.props.allFood, "props")
+        
         return (
           <KeyboardAwareScrollView  contentContainerStyle={{flexGrow: 1}}>
           <View style={styles.container}>

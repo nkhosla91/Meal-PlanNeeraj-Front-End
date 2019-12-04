@@ -16,6 +16,7 @@ class CalorieCalc extends React.Component {
   }
 
    getCalories = () => {
+  
      if (this.props.userFoods) {
       const date = new Date().getDate(); //Current Date
       const month = new Date().getMonth() + 1; //Current Month
@@ -78,43 +79,8 @@ class CalorieCalc extends React.Component {
   
               </View>
 
-                  {/* <Progress.Circle progress={this.getCalories()/this.props.user["calories"]} width={340} /> */}
-
               <View></View>
-                  {/* <ProgressChart
-                        data={[.4]}
-                        width={300}
-                        height={220}
-                        
-                        // backgroundColor="#B3A5FD"
-                        chartConfig={{
-                          backgroundColor: "#C5FFCA'",
-                          backgroundGradientFrom: "#C5FFCA'",
-                          backgroundGradientTo: "#C5FFCA'",
-                          decimalPlaces: 2, // optional, defaults to 2dp
-                          color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                          labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                          style: {
-                            borderRadius: 16
-                          },
-                          propsForDots: {
-                            r: "6",
-                            strokeWidth: "2",
-                            stroke: "#ffa726"
-                          }
-                        }}
-                        /> */}
-                   {/* <ProgressCircle
-                        percent={30}
-                        radius={50}
-                        borderWidth={8}
-                        color="#3399FF"
-                        shadowColor="#999"
-                        bgColor="#fff"
-                    >
-                        <Text style={{ fontSize: 18 }}>Cals</Text> */}
-                    {/* </ProgressCircle>
-              </View> */}
+                 
             </View>
         
         )

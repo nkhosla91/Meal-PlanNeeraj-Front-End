@@ -26,7 +26,7 @@ const reducer = (prevState = initialState, action) => {
     case 'LOGGED_IN':
       return {...prevState, loggedIn: true}
     case 'ALL_FOOD':
-      // console.log("selected")
+     
       return {...prevState, allFood: action.payload}
     case 'SELECT_FOOD':
       return {...prevState, selectFood: action.payload}
