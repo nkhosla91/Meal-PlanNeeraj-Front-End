@@ -75,7 +75,7 @@ class CalorieLineChart extends React.Component {
                 }
             formatYLabel={(ylabel => Math.floor(ylabel))}
             data={this.lineData()}
-            width={Dimensions.get('window').width} // from react-native
+            width={Dimensions.get('window').width - 40} // from react-native
             height={220}
             chartConfig={  {
                 // backgroundColor: '#C5FFCA',

@@ -1,6 +1,6 @@
 import React from 'react'
-import { StyleSheet, Text, View, Animated, Dimensions} from 'react-native'
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import { StyleSheet, Text, View, Animated, Dimensions, ScrollView} from 'react-native'
+// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 // import { PieChart } from "react-native-chart-kit"
 import {connect} from 'react-redux'
 import MacroPie from './DailySummary/MacroPie'
@@ -13,7 +13,7 @@ class MyInfo extends React.Component {
     render () {
         // console.log(this.props.screenProps)
     return (
-        <KeyboardAwareScrollView  contentContainerStyle={{flexGrow: 1}}>
+        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{flexGrow: 1}}>
             <View style={styles.container}>
             <Text style={styles.title}> 
                     Daily Summary
@@ -30,11 +30,14 @@ class MyInfo extends React.Component {
                 <Text style={styles.subText}> 
                     Click any data point for more information!
                 </Text>
-      <CalorieLineChart style={{justifyContent: 'center'}}/>
+                <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                  <CalorieLineChart style={{justifyContent: 'center'}}/>
+                  </View>
+              
             <Text style={{padding: 20}}></Text>
             </View>
 
-        </KeyboardAwareScrollView>
+        </ScrollView>
     )
   }
 }

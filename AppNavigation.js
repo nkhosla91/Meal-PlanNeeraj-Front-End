@@ -1,5 +1,6 @@
+import { Dimensions, SafeAreaView } from 'react-native'
 import { createDrawerNavigator} from 'react-navigation-drawer'
-import  { createAppContainer  } from 'react-navigation'
+import  { createAppContainer } from 'react-navigation'
 import MyInfo from './App_screens/MyInfo'
 import SettingsScreen from './App_screens/SettingsScreen'
 import FoodNavigator from './App_screens/FoodNavigator'
@@ -26,6 +27,9 @@ export default createAppContainer (
     },
   },{
     drawerBackgroundColor : '#98d99d',
+    drawerWidth: Dimensions.get('window').width*.775,
+    drawerType: 'slide',
+    resetOnBlur: true,
     contentOptions: {
       activeTintColor: 'yellow',
       inactiveTintColor : 'black',
@@ -38,3 +42,16 @@ export default createAppContainer (
   }
   )
 )
+
+
+// const customDrawerComponent = (props) => {
+//   <SafeAreaView style={{flex: 1}}>
+//     <View style={{backgroundColor: 'black'}}>
+
+//     </View>
+//     <ScrollView>
+//       <DrawerItems {...props}/>
+//     </ScrollView>
+     
+//   </SafeAreaView>
+// }

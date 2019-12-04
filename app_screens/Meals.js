@@ -48,7 +48,7 @@ class Meals extends React.Component {
     render () {
         // console.log(this.props.sessionFoods, "?")
     return (
-<ScrollView >
+<ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
         <Text style={styles.paragraph}> 
             </Text>
