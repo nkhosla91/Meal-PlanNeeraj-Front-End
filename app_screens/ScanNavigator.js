@@ -12,7 +12,23 @@ export default createAppContainer (
       "Create Food": CreateFood
     },
     {
-      initialRouteName: 'Scan'
+      initialRouteName: 'Scan',
+      tabBarOptions: {
+        activeTintColor: 'yellow',
+        inactiveTintColor: 'black',
+        style: {
+          backgroundColor: '#98d99d',
+        },
+        labelStyle: {
+          fontSize: 20,
+          textAlign: 'center',
+          fontFamily: 'Cochin'
+        },
+        indicatorStyle: {
+          borderBottomColor: '#87B56A',
+          borderBottomWidth: 2,
+        },
+      }
     }
     )
   )

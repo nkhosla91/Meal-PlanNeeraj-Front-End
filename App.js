@@ -11,7 +11,7 @@ const initialState = {
   allFood: [],
   userfoods: [],
   sessionFoods: [],
-  loggedIn: false,
+  loggedIn: true,
   selectFood: {},
   scannedFood: {},
   sacnnedImage: null
@@ -24,7 +24,7 @@ const reducer = (prevState = initialState, action) => {
   switch(action.type)
   {
     case 'LOGGED_IN':
-      return {...prevState, loggedIn: true}
+      return {...prevState, loggedIn: !prevState.loggedIn}
     case 'ALL_FOOD':
      
       return {...prevState, allFood: action.payload}

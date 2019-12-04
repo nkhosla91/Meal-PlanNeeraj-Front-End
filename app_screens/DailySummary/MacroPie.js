@@ -95,7 +95,6 @@ class MacroPie extends React.Component {
                     }}
                     style={{
                       marginLeft: 20,
-                      marginVertical: 8,
                       borderRadius: 16,
                     }}
                     accessor="macro"

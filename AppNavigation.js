@@ -24,5 +24,17 @@ export default createAppContainer (
     Settings: {
       screen: SettingsScreen
     },
-  })
+  },{
+    drawerBackgroundColor : '#98d99d',
+    contentOptions: {
+      activeTintColor: 'yellow',
+      inactiveTintColor : 'black',
+      labelStyle: {
+        fontSize: 20,
+        textAlign: 'center',
+        fontFamily: 'Cochin'
+      }
+    }
+  }
+  )
 )

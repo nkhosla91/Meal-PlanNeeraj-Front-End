@@ -99,7 +99,7 @@ function mapStateToProps(state){
 
 const styles = StyleSheet.create({
       container:  {
-        backgroundColor: '#B3A5FD',
+        backgroundColor: '#F8F8F8',
         borderRadius: 14,
         padding: 10,
         borderWidth: 1,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.8,
-        shadowRadius: 2,
+        shadowRadius: 1,
         elevation: 1,
         marginLeft: 5,
         marginRight: 5,

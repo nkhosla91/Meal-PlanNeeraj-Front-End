@@ -106,9 +106,22 @@ const styles = StyleSheet.create({
         padding: 5
     },
     key: {
-        // justifyContent: 'space-between'
+        fontWeight: 'bold',
+        fontFamily: 'Cochin',
+        fontSize: 20
     },
     value: {
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderRadius: 2,
+        borderColor: '#ddd',
+        borderBottomWidth: 0,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 1,
+        fontFamily: 'Cochin',
+        padding: 5
     }
   })

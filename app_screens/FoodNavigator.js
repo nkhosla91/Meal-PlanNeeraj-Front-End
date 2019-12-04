@@ -12,7 +12,22 @@ export default createAppContainer (
       Show: Show,
     },
     {
-      initialRouteName: 'Search'
-    }
-    )
+      initialRouteName: 'Search',
+      tabBarOptions: {
+        activeTintColor: 'yellow',
+        inactiveTintColor: 'black',
+        style: {
+          backgroundColor: '#98d99d',
+        },
+        labelStyle: {
+          fontSize: 20,
+          textAlign: 'center',
+          fontFamily: 'Cochin'
+        },
+        indicatorStyle: {
+          borderBottomColor: '#87B56A',
+          borderBottomWidth: 2,
+        },
+      },
+  })
   )

@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-import { LineChart, BarChart, Grid } from "react-native-chart-kit"
+import {connect} from 'react-redux'
 
 
-export default class SettingsHome extends React.Component {
+class SettingsHome extends React.Component {
 
     handleNavigation = () =>{
         this.props.navigation.navigate('EditUser')
@@ -19,15 +19,24 @@ export default class SettingsHome extends React.Component {
                    Settings
                 </Text>
                 <TouchableOpacity onPress={this.handleNavigation}>
-                          <Text >Edit User</Text>
+                          <Text style={styles.options} >Edit User</Text>
                 </TouchableOpacity>
-                <TouchableOpacity >
-                          <Text >Log Out</Text>
+                <TouchableOpacity onPress={this.props.loggedIn}>
+                          <Text style={styles.options}>Log Out</Text>
                 </TouchableOpacity>
               
             </View>
         </KeyboardAwareScrollView>
     )
+  }
+}
+
+export default connect(null, mapDispatchToProps)(SettingsHome)
+
+
+function mapDispatchToProps(dispatch){
+  return {
+      loggedIn: () => dispatch({type: 'LOGGED_IN'}),
   }
 }
 
@@ -42,10 +51,16 @@ const styles = StyleSheet.create({
     title: {
       marginTop: 85,
       marginBottom: 55,
-      fontSize: 18,
       textAlign: 'center',
       fontSize: 40,
       fontWeight: 'bold',
       fontFamily: 'Cochin'
+    },  
+    options: {
+      fontSize: 18,
+      textAlign: 'left',
+      fontWeight: 'bold',
+      fontFamily: 'Cochin',
+      marginBottom: 10
     },  
   })
