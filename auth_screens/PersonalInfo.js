@@ -6,6 +6,7 @@ import t from 'tcomb-form-native'
 
 const Form = t.form.Form
 
+
 const Gender = t.enums({
     M: 'Male',
     F: 'Female'
@@ -28,6 +29,18 @@ const User = t.struct({
     activityLevel: ActivityLevel
 })
 
+const options = {
+  fields: {
+    height: {
+      label: 'Height (inches)',
+      config: 'height'
+    },
+    weight: {
+      label: 'Weight (lbs.)'
+    }
+  }
+};
+
 
 export default class AccountInfo extends React.Component {
 
@@ -48,6 +61,7 @@ export default class AccountInfo extends React.Component {
                 <Form  
                 ref={c => this._form = c} 
                 type={User} 
+                options={options}
                 />
                 <Button
                 title="Next"

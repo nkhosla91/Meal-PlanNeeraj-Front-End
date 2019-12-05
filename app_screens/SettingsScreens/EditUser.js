@@ -45,7 +45,7 @@ class EditUser extends React.Component {
                         </View>
                         <View style={styles.row}>
                             <Text style={styles.key}>Password</Text>
-                            <Text style={styles.value}>{this.props.user["password"]}</Text>
+                            <Text style={styles.value}>***********</Text>
                         </View>
                         <View style={styles.row}>
                             <Text style={styles.key}>Age</Text>

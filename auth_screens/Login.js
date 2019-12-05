@@ -11,6 +11,14 @@ const User = t.struct({
     password: t.String
 })
 
+const options = {
+  fields: {
+    password: {
+      password: true,
+      secureTextEntry: true
+    }
+  }
+};
 
 class Login extends React.Component {
   render(){
@@ -21,7 +29,7 @@ class Login extends React.Component {
            <Form  
                     ref={c => this._form = c} 
                     type={User} 
-    
+                    options={options}
                     />
         <Button
             title="Log In"

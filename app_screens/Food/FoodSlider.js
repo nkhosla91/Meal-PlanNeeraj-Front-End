@@ -6,14 +6,15 @@ import { SliderBox } from 'react-native-image-slider-box';
 
 // const ds = new FlatList.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
 
-class Slider extends React.Component {
+class FoodSlider extends React.Component {
 
     state = {
         images: [
-          'https://storage.googleapis.com/gen-atmedia/3/2017/03/8370c8f6bdc015e9918e291e7e3277f0a2bb99f6.gif',
-          'https://simpleandsane.com/wp-content/uploads/2018/07/Keto-Diet-for-Beginners-blog-graphic.jpg',
-          'https://www.leisurecare.com/resources/wp-content/uploads/2018/12/healthy-eating-during-holidays.png',
-          'https://www.developgoodhabits.com/wp-content/uploads/2019/01/best-workout-apps.jpg'
+            'https://i.ytimg.com/vi/Pl-KTokwD4s/maxresdefault.jpg',
+          'https://s3.amazonaws.com/webseed-realvideo-thumbnail/poster/40843586-3787-42c8-aaaf-a6f1792b5089',
+          'https://dizwa.com/wp-content/uploads/2019/08/TOP-10-HEALTHY-FOODS.png',
+          'https://makeyourbodywork.com/wp-content/uploads/2013/03/Best-Food-Blogs.png',
+
         ]
       }
 
@@ -40,7 +41,7 @@ class Slider extends React.Component {
     }
 }
 
-export default connect(mapStateToProps)(Slider)
+export default connect(mapStateToProps)(FoodSlider)
 
 function mapStateToProps(state){
     return{

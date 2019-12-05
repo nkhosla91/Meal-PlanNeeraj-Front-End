@@ -116,6 +116,9 @@ class CreateFood extends React.Component {
       const value = this._form.getValue()
       console.log(value, "value" )
 
+        if(!value || !value["Calories"] || !value["Carbs"] || !value["Fat"] || !value["Protein"] || !value["mealtime"]){
+          return alert("Please complete the entire form to add this food!")
+        }
 
 
       let newFoodArray = {
@@ -169,7 +172,7 @@ class CreateFood extends React.Component {
               }
 
               console.log("userfood", userfood)
-        fetch('http://10.9.108.72:3000/api/v1/userfoods', {
+        fetch('http://10.9.106.90:3000/api/v1/userfoods', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -186,7 +189,7 @@ class CreateFood extends React.Component {
       }//end of postUserFood
   
 
-      fetch('http://10.9.108.72:3000/api/v1/foods', {
+      fetch('http://10.9.106.90:3000/api/v1/foods', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -202,7 +205,8 @@ class CreateFood extends React.Component {
     }//end of handle submit
     render () {
     
-      if(this.props.scannedFood["title"]){
+      if(1===1){
+      // if(this.props.scannedFood["title"]){
     return (      
       <KeyboardAwareScrollView  contentContainerStyle={{flexGrow: 1}}>
          <View style={styles.container}>

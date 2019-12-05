@@ -9,11 +9,11 @@ import { allFood, fetchUserFoods }from './actions'
 class FullAppNavigator extends React.Component {
   
     componentDidMount() {
-        fetch('http://10.9.108.72:3000/api/v1/foods')
+        fetch('http://10.9.106.90:3000/api/v1/foods')
           .then(response => response.json())
           .then(data => this.props.allFood(data))
           
-        fetch('http://10.9.108.72:3000/api/v1/userfoods')
+        fetch('http://10.9.106.90:3000/api/v1/userfoods')
           .then(response => response.json())
           .then(data => this.props.fetchUserFoods(data))
 

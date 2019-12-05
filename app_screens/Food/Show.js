@@ -5,7 +5,7 @@ import MealContainer from '/Users/flatironschool/Documents/FINAL PROJECT - MOD 5
 import t from 'tcomb-form-native'
 import {connect} from 'react-redux'
 import { addSessionFoods }from '../../actions'
-import Slider from '/Users/flatironschool/Documents/FINAL PROJECT - MOD 5/Meal-Planneeraj-Front-End/App_screens/Slider.js'
+import FoodSlider from './FoodSlider'
 import { NutritionLabel }from 'react-fda-nutrition-facts'
 
 const Form = t.form.Form
@@ -30,6 +30,11 @@ class Show extends React.Component {
 
   handleSubmit = () => {
     const value = this._form.getValue()
+    console.log(value)
+
+    if(!value) {
+      return alert("Please select a meal time!")
+    }
     
 
 
@@ -69,7 +74,7 @@ class Show extends React.Component {
     }
     // console.log(userfood, "userfood")
 
-    return fetch('http://10.9.108.72:3000/api/v1/userfoods', {
+    return fetch('http://10.9.106.90:3000/api/v1/userfoods', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -95,7 +100,7 @@ class Show extends React.Component {
        <Text style={styles.top}>
   
     </Text>
-         <Slider style={styles.meal}/>
+         <FoodSlider style={styles.meal}/>
 
           <Text style={styles.paragraph}> 
               </Text>

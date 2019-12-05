@@ -16,7 +16,7 @@ class MealContainer extends React.Component {
   
     handleRemove = userfood_id => () => {  
       // console.log(userfood_id)
-      fetch(`http://10.9.108.72:3000/api/v1/userfoods/${userfood_id}`, {
+      fetch(`http://10.9.106.90:3000/api/v1/userfoods/${userfood_id}`, {
         method: 'delete'
            })
           .then(response => response.json())
