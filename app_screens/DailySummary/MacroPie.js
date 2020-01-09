@@ -24,9 +24,15 @@ class MacroPie extends React.Component {
         return (date < 10 ? '0' : '') + date
        }
 
-      newDay=pad2(date)
+       function pad2day(date) {
+        return (date < 10 ? '0' : '') + date
+      }
 
-      const fullDate = year + '-' + month + '-' + newDay
+      function pad2month(month) {
+        return (month < 10 ? '0' : '') + month
+      }
+
+      const fullDate = year + '-' + newMonth + '-' + newDay
       
       let carbs = 0
       let fat = 0

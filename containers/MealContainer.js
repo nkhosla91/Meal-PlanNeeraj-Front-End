@@ -16,12 +16,12 @@ class MealContainer extends React.Component {
   
     handleRemove = userfood_id => () => {  
       // console.log(userfood_id)
-      fetch(`http://10.9.106.90:3000/api/v1/userfoods/${userfood_id}`, {
+      fetch(`http://192.168.0.168:3000/api/v1/userfoods/${userfood_id}`, {
         method: 'delete'
            })
           .then(response => response.json())
           
-        let newUserFoods = this.props.userFoods.filter(userFood =>{
+        let newUserFoods = this.props.userFoods.filter(userFood => {
           // console.log(userFood["id"],"help", userfood_id)
                 return userFood["id"] != userfood_id
         })

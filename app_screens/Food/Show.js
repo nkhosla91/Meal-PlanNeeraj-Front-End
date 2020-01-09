@@ -74,7 +74,7 @@ class Show extends React.Component {
     }
     // console.log(userfood, "userfood")
 
-    return fetch('http://10.9.106.90:3000/api/v1/userfoods', {
+    return fetch('http://192.168.0.168:3000/api/v1/userfoods', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -83,6 +83,7 @@ class Show extends React.Component {
       body: JSON.stringify(userfood),
     }) 
     .then(response => response.json())
+    .then(console.log(userfood))
     // .then(response => console.log(response["userfood"], "hello"))
     .then(sessionFood["id"])
     .then(this.props.addSessionFoods(sessionFood))

@@ -116,13 +116,13 @@ class CreateFood extends React.Component {
       const value = this._form.getValue()
       console.log(value, "value" )
 
-        if(!value || !value["Calories"] || !value["Carbs"] || !value["Fat"] || !value["Protein"] || !value["mealtime"]){
-          return alert("Please complete the entire form to add this food!")
-        }
+        // if(!value || !value["Calories"] || !value["Carbs"] || !value["Fat"] || !value["Protein"] || !value["mealtime"]){
+        //   return alert("Please complete the entire form to add this food!")
+        // }
 
 
       let newFoodArray = {
-        "name": this.props.scannedFood["title"],
+        "name": this.state.limitArray["title"],
         "carbs": value["Carbs"],
         "fat": value["Fat"],
         "protein": value["Protein"],
@@ -172,7 +172,7 @@ class CreateFood extends React.Component {
               }
 
               console.log("userfood", userfood)
-        fetch('http://10.9.106.90:3000/api/v1/userfoods', {
+        fetch('http://192.168.0.168:3000/api/v1/userfoods', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -189,7 +189,7 @@ class CreateFood extends React.Component {
       }//end of postUserFood
   
 
-      fetch('http://10.9.106.90:3000/api/v1/foods', {
+      fetch('http://192.168.0.168:3000/api/v1/foods', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -206,7 +206,7 @@ class CreateFood extends React.Component {
     render () {
     
       if(1===1){
-      // if(this.props.scannedFood["title"]){
+      // if(this.state.limitArray["title"]){
     return (      
       <KeyboardAwareScrollView  contentContainerStyle={{flexGrow: 1}}>
          <View style={styles.container}>
@@ -214,21 +214,21 @@ class CreateFood extends React.Component {
             Scan Succesful!
             </Text>
 
-              {this.props.scannedFood["images"][0] ?
+              {this.state.limitArray["images"][0] ?
                     <View style={{flexDirection: 'row', justifyContent: 'center'}}>
                       <Image
                         style={styles.image}
-                        source={{uri: this.props.scannedFood["images"][0]}}
+                        source={{uri: this.state.limitArray["images"][0]}}
                         />
                       </View>
                     : null
               }
             
-            <Text style={styles.name}>{this.props.scannedFood["title"]}</Text>
+            <Text style={styles.name}>{this.state.limitArray["title"]}</Text>
 
-            {this.props.scannedFood["description"] ?
+            {this.state.limitArray["description"] ?
                     <View style={styles.meal}>  
-                      <Text style={styles.description}>{this.props.scannedFood["description"]}</Text>
+                      <Text style={styles.description}>{this.state.limitArray["description"]}</Text>
                     </View>    
                             : null
               }

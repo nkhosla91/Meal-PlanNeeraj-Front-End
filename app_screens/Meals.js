@@ -10,6 +10,7 @@ import DinnerCalories from '../containers/DinnerCalories'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
 
+
 class Meals extends React.Component {
   
   userMeals = (meal) => {
@@ -19,13 +20,18 @@ class Meals extends React.Component {
     const year = new Date().getFullYear(); //Current Year
     const hours = new Date().getHours(); //Current Hours
 
-    function pad2(date) {
+    function pad2day(date) {
       return (date < 10 ? '0' : '') + date
-  }
+    }
 
-    newDay=pad2(date)
+    function pad2month(month) {
+      return (month < 10 ? '0' : '') + month
+    }
 
-    const fullDate = year + '-' + month + '-' + newDay
+    newDay=pad2day(date)
+    newMonth=pad2month(month)
+
+    const fullDate = year + '-' + newMonth + '-' + newDay
   
     // console.log(`${fullDate}`)
 

@@ -36,7 +36,8 @@ class CalorieLineChart extends React.Component {
                   var str = tempDate.getFullYear() + "-" + pad(tempDate.getMonth()+1) + "-" + pad(tempDate.getDate());
                   dates.push(str);  
               }
-                  // console.log(dates);
+              // console.log(date, "date")
+                  // console.log(dates, "dates");
   
               const allMeals = [...this.props.userFoods, ...this.props.sessionFoods]
   
@@ -50,6 +51,7 @@ class CalorieLineChart extends React.Component {
                           })
                           data.datasets[0].data.push(Math.floor(calories))
                           data.labels.push(dates[i].slice(5))
+                          // console.log(dailyMeals)
                       }
           
           } //end of props if

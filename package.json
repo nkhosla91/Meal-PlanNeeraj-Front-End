@@ -34,6 +34,7 @@
     "react-native-linear-gradient": "^2.5.6",
     "react-native-numeric-input": "^1.8.3",
     "react-native-paper": "^3.2.1",
+    "react-native-plus-button-box": "^1.1.0",
     "react-native-progress": "^4.0.2",
     "react-native-progress-circle": "^2.1.0",
     "react-native-responsive-linechart": "^2.2.0",
